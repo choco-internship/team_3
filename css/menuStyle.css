@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  background: white;
+}
+
+/* Header */
+
+header {
+  /* position: fixed; */
+  width: 100vw;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+header > p {
+  padding-top: 40px;
+  padding-left: 16px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100%;
+  color: #131113;
+}
+
+#menupage {
+  width: 100%;
+  left: 0px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Interface/Container Background */
+
+  background: #ffffff;
+}
+
+section > .rest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  width: 100%;
+  height: 90px;
+}
+
+section > .rest > img {
+  width: 90px;
+  height: 90px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  border-radius: 8px;
+  margin: 0px 16px;
+}
+
+section > .rest > .textinfo > .restname {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 125% */
+
+  /* Text/Primary (Black) */
+
+  color: #131113;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+section > .rest > .textinfo > .restadress {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  /* or 114% */
+
+  /* Text/Primary (Black) */
+
+  color: #131113;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+section > .rest > .textinfo {
+  /* margin-left: 16px; */
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+}
+section > .between {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 100vw;
+}
+
+section > .between > .betweenline {
+  height: 1px;
+  width: 100%;
+  margin: 0px 16px;
+  background: #ececec;
+}
