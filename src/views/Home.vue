@@ -1,74 +1,37 @@
 <template>
   <div class="mainPage">
-    <header>
-      <p>Заказ с собой</p>
-    </header>
-    <section id="menupage">
-      <router-link to="/menu">
-        <div class="rest">
-          <img src="../assets/img/rest1.png" alt="Del Papa Image"/>
+    <Header :title="pageTitle" :icon="null" />
+    <section id="menupage" v-for="(p,i) in $options.$products" :key="i">
+      <router-link :to="/menu/+p.id" class="rest">
+          <img :src="p.rest_img" alt="Del Papa Image"/>
           <div class="textinfo">
-            <p class="restname">Del Papa</p>
-            <p class="restadress">ул. Бухар жырау, 66, уг. ул. Ауэзова</p>
+            <p class="restname">{{ p.rest_name }}</p>
+            <p class="restadress">{{ p.rest_address }}</p>
           </div>
-        </div>
       </router-link>
       <div class="between">
         <div class="betweenline"></div>
       </div>
-
-      <div class="rest">
-        <img src="../assets/img/rest2.png" alt="Svet Image"/>
-        <div class="textinfo">
-          <p class="restname">Ресторан "Свет"</p>
-          <p class="restadress">ул. Кабанбай батыра 83</p>
-        </div>
-      </div>
-      <div class="between">
-        <div class="betweenline"></div>
-      </div>
-
-      <div class="rest">
-        <img src="../assets/img/rest3.png" alt="Mama Mia Image"/>
-        <div class="textinfo">
-          <p class="restname">Mamma Mia</p>
-          <p class="restadress">ул. Панфилова 109</p>
-        </div>
-      </div>
-      <div class="between">
-        <div class="betweenline"></div>
-      </div>
-
-      <div class="rest">
-        <img src="../assets/img/rest4.png" alt="Bahandi Burger Image"/>
-        <div class="textinfo">
-          <p class="restname">Bahandi Burger</p>
-          <p class="restadress">ул. Байтурсынова 61</p>
-        </div>
-      </div>
-      <div class="between">
-        <div class="betweenline"></div>
-      </div>
-
-      <div class="rest">
-        <img src="../assets/img/rest5.png" alt="KFC Image"/>
-        <div class="textinfo">
-          <p class="restname">KFC</p>
-          <p class="restadress">ул. Кабанбай батыра 83</p>
-        </div>
-      </div>
-
     </section>
   </div>
 
 </template>
 
 <script>
+import {restaraunts} from "../config/mock";
+import Header from "../components/Header";
+
 export default {
   name: 'Home',
+  data() {
+    return {
+      pageTitle: "Заказ с собой"
+    }
+  },
   components: {
-
-  }
+    Header
+  },
+  $products: restaraunts
 }
 </script>
 <style scoped>
@@ -112,6 +75,7 @@ header > p {
 }
 
 section > .rest {
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

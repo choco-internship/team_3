@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import MenuPage from '../components/menuPage';
 import cartPage from "../components/cartPage";
+import menuListPage from "../components/menuListPage";
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,7 +29,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Rakhmet.vue')
   },
   {
-    path: '/menu',
+    path: '/menu/:id',
     name: 'MenuPage',
     component: MenuPage
   },
@@ -36,6 +37,11 @@ const routes = [
     path: '/cartPage',
     name: 'cartPage',
     component: cartPage
+  },
+  {
+    path: '/menuList',
+    name: 'menuListPage',
+    component: menuListPage
   }
 ]
 

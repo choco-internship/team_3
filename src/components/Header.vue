@@ -1,15 +1,24 @@
 <template>
   <header class="header">
-    <router-link to="/">
-      <img src="../assets/img/arrow_back.svg" alt="">
-    </router-link>
-    <p class="title">Mamma mia</p>
+    <a v-if="icon" @click="$router.back()">
+      <img :src="icon" alt="">
+    </a>
+    <p class="title">{{ title }}</p>
   </header>
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    icon: {
+      type: String
+    }
+  }
 }
 </script>
 
@@ -26,13 +35,14 @@ export default {
 .header img {
   width: 14px;
   height: 14px;
+  margin-right: 36px;
 }
 .header .title {
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
   line-height: 20px;
-  margin-left: 36px;
+
 }
 
 </style>

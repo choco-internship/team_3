@@ -10,7 +10,7 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 body {
   margin: 0;
@@ -18,7 +18,6 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-
   background: white;
 }
 #app {
