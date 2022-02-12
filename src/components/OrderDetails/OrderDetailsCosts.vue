@@ -2,13 +2,13 @@
   <div class="orderdetailspage__foods">
     <span class="orderdetailspage__info">Позиции в заказе</span>
     <div
-      v-for="(order, index) in $options.$orders[1].orderDetails"
+      v-for="(food, index) in order.orderDetails"
       :key="index"
       class="orderdetailspage_order"
     >
-      <span>{{ order.orderFood }} </span>
+      <span>{{ food.orderFood }} </span>
       <span style="padding-right: 16px"
-        >{{ addSpaceNum(order.orderFoodCost) }} тг
+        >{{ addSpaceNum(food.orderFoodCost) }} тг
       </span>
     </div>
     <div class="line">
@@ -17,7 +17,7 @@
     <div class="orderdetailspage_order">
       <span style="padding-top: 24px; font-weight: bold">Итого</span>
       <span style="padding-right: 16px; padding-top: 24px; font-weight: bold"
-        >6900 тг</span
+        >{{ addSpaceNum(order.orderCost) }} тг</span
       >
     </div>
   </div>
@@ -26,6 +26,13 @@
 <script>
 export default {
   name: "OrderDetailsCosts",
+  props: { order: { type: [Array, Object] } },
+  methods: {
+    addSpaceNum(given) {
+      let result = given.toLocaleString();
+      return result;
+    },
+  },
 };
 </script>
 

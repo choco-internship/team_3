@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import CartPage from "./pages/CartPage.vue";
 import OrdersPage from "./pages/OrdersPage.vue";
-import OrderDetialsPage from "./pages/OrderDetailsPage.vue";
+import OrderDetailsPage from "./pages/OrderDetailsPage.vue";
 import MainPage from "./pages/MainPage.vue";
 
 import "./assets/css/style.css";
@@ -37,8 +37,8 @@ const router = new VueRouter({
     },
     {
       name: "OrderDetailsPage",
-      path: "/mama",
-      component: OrderDetialsPage,
+      path: "/orders/:ordernumber",
+      component: OrderDetailsPage,
       props: true,
     }
   ],

@@ -1,17 +1,17 @@
 <template>
   <div class="orderspage__order">
     <div class="orderspage__order-left">
-      <h3 class="orderspage__order-rest">{{ this.restName }}</h3>
+      <h3 class="orderspage__order-rest">{{ order.restName }}</h3>
       <span class="orderspage__order-price">{{ this.addSpaceNum() }} тг</span>
       <span class="orderspage__order-status">
         Стасус -
         <span :style="`color: ${this.whichStatus()}`">
-          {{ this.orderStatus }}
+          {{ order.orderStatus }}
         </span>
       </span>
     </div>
 
-    <span class="orderspage__order-date"> {{ this.orderDate }} </span>
+    <span class="orderspage__order-date"> {{ order.orderDate }} </span>
     <svg
       @click="checkOrderDetails()"
       class="orderspage__order-details"
@@ -39,41 +39,33 @@ export default {
   },
   methods: {
     addSpaceNum() {
-      let result = this.orderCost.toLocaleString();
+      let result = this.order.orderCost.toLocaleString();
       return result;
     },
     whichStatus() {
       let color;
-      if (this.orderStatus === "В обработке") {
+      if (this.order.orderStatus === "В обработке") {
         color = "#2997FF";
-      } else if (this.orderStatus === "Готов") {
+      } else if (this.order.orderStatus === "Готов") {
         color = "#A3CFA3";
-      } else if (this.orderStatus === "На кухне") {
+      } else if (this.order.orderStatus === "На кухне") {
         color = "#E68D49";
       } else color = "";
       return color;
     },
     checkOrderDetails() {
-      this.$router.push({ name: `${this.page}` });
+      this.$router.push({
+        name: `${this.page}`,
+        params: { orderID: this.orderId, ordernumber: this.order.orderNumber.slice(1,this.order.orderNumber.length) },
+      });
     },
   },
   props: {
-    restName: {
-      type: String,
+    order: {
+      type: [Array, Object],
       required: true,
     },
-    orderCost: {
-      type: Number,
-      required: true,
-    },
-    orderStatus: {
-      type: String,
-      required: true,
-    },
-    orderDate: {
-      type: String,
-      required: true,
-    },
+    orderId: { type: Number },
   },
 };
 </script>

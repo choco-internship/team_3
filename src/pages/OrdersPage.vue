@@ -3,10 +3,8 @@
     <OrderCard
       v-for="(order, index) in $options.$orders"
       :key="index"
-      :restName="order.restName"
-      :orderCost="order.orderCost"
-      :orderDate="order.orderDate"
-      :orderStatus="order.orderStatus"
+      :order="order"
+      :orderId="index"
     />
     <NavBar :pageActive="'OrdersPage'" />
   </section>

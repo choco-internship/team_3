@@ -1,18 +1,19 @@
 <template>
   <section id="orderdetailspage" class="orderdetailspage">
     <OrderDetailsTop
-      :restname="`ChocoCafe`"
-      :restaddress="`1.2 км • Коктем 3-й микрорайон`"
+      :restname="$options.$orders[this.orderID].restName"
+      :restaddress="$options.$orders[this.orderID].orderAddress"
     />
     <div class="between order">
       <div class="betweenline"></div>
     </div>
-    <OrderDetailsStatus 
-    :orderStatus="`На кухне`"
-    :orderDate="`17.11.2021, 08:44`"
-    :orderNumber="`№3161389`"/>
+    <OrderDetailsStatus
+      :orderStatus="$options.$orders[this.orderID].orderStatus"
+      :orderDate="$options.$orders[this.orderID].orderDate"
+      :orderNumber="$options.$orders[this.orderID].orderNumber"
+    />
     <div class="divider"></div>
-    
+    <OrderDetailsCosts :order="$options.$orders[this.orderID]" />
     <NavBar :pageActive="'OrdersPage'" />
   </section>
 </template>
@@ -22,6 +23,7 @@ import { ordersitems } from "../config/orders-items.js";
 import NavBar from "../components/NavBar/NavBar.vue";
 import OrderDetailsTop from "../components/OrderDetails/OrderDetailsTop.vue";
 import OrderDetailsStatus from "../components/OrderDetails/OrderDetailsStatus.vue";
+import OrderDetailsCosts from "../components/OrderDetails/OrderDetailsCosts.vue";
 
 export default {
   name: "OrdersDetailsPage",
@@ -36,6 +38,16 @@ export default {
     NavBar,
     OrderDetailsTop,
     OrderDetailsStatus,
+    OrderDetailsCosts,
+  },
+  props: {
+    orderID: {
+      type: Number,
+      required: true,
+    },
+    ordernumber: {
+      type: String,
+    },
   },
 };
 </script>
@@ -50,6 +62,4 @@ export default {
   margin-top: 0;
   background: white;
 }
-
-
 </style>

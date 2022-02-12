@@ -19,6 +19,14 @@ export const ordersitems = [
         orderFood: "1 х Бурег с говядиной",
         orderFoodCost: 2500,
       },
+      {
+        orderFood: "1 х Бурег с говядиной",
+        orderFoodCost: 2500,
+      },
+      {
+        orderFood: "1 х Бурег с говядиной",
+        orderFoodCost: 2500,
+      },
     ],
   },
   {
