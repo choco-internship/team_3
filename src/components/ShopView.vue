@@ -41,3 +41,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+section > .restaraunt {
+  width: 100%;
+}
+</style>

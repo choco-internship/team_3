@@ -1,5 +1,6 @@
 <template>
   <section id="menupage">
+      <Header :title="`Заказ с собой`" :icon="false"/>
     <ShopView
       v-for="item in $options.$Items"
       :key="item.id"
@@ -14,14 +15,16 @@
 
 <script>
 import ShopView from "../components/ShopView.vue";
-import NavBar from "../components/NavBar/NavBar.vue"
-import {REST_ITEMS} from '../config/rest-items'
+import Header from "../components/Base/Header.vue";
+import NavBar from "../components/Base/NavBar.vue";
+import {REST_ITEMS} from '../config/rest-items';
 
 export default {
   name: "MainPage",
   components: {
     ShopView,
     NavBar,
+    Header,
   },
   methods: {
     getImgUrl: function (imagePath) {
@@ -32,5 +35,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#menupage {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+
 </style>

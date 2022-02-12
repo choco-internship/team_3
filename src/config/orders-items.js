@@ -5,7 +5,7 @@ export const ordersitems = [
     orderStatus: "В обработке",
     orderDate: "15.12.2021, 10:44",
     orderAddress: "1.2 км • Коктем 3-й микрорайон",
-    orderNumber: "№3161389",
+    orderNumber: "№3161380",
     orderDetails: [
       {
         orderFood: "1 х Паста спагетти Алио и Олио",
@@ -57,7 +57,7 @@ export const ordersitems = [
     orderStatus: "Готов",
     orderDate: "07.08.2021, 12:44",
     orderAddress: "1.2 км • Коктем 3-й микрорайон",
-    orderNumber: "№3161389",
+    orderNumber: "№3161381",
     orderDetails: [
       {
         orderFood: "1 х Паста спагетти Алио и Олио",
@@ -79,7 +79,7 @@ export const ordersitems = [
     orderStatus: "Завершен",
     orderDate: "21.01.2021, 11:44",
     orderAddress: "1.2 км • Коктем 3-й микрорайон",
-    orderNumber: "№3161389",
+    orderNumber: "№3161382",
     orderDetails: [
       {
         orderFood: "1 х Паста спагетти Алио и Олио",

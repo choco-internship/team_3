@@ -1,5 +1,6 @@
 <template>
   <section id="orderdetailspage" class="orderdetailspage">
+    <Header :title="`Детали заказа`" :icon="true"/>
     <OrderDetailsTop
       :restname="$options.$orders[this.orderID].restName"
       :restaddress="$options.$orders[this.orderID].orderAddress"
@@ -20,7 +21,8 @@
 
 <script>
 import { ordersitems } from "../config/orders-items.js";
-import NavBar from "../components/NavBar/NavBar.vue";
+import Header from "../components/Base/Header.vue";
+import NavBar from "../components/Base/NavBar.vue";
 import OrderDetailsTop from "../components/OrderDetails/OrderDetailsTop.vue";
 import OrderDetailsStatus from "../components/OrderDetails/OrderDetailsStatus.vue";
 import OrderDetailsCosts from "../components/OrderDetails/OrderDetailsCosts.vue";
@@ -36,6 +38,7 @@ export default {
   },
   components: {
     NavBar,
+    Header,
     OrderDetailsTop,
     OrderDetailsStatus,
     OrderDetailsCosts,

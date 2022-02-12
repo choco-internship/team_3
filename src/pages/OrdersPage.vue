@@ -1,5 +1,6 @@
 <template>
   <section id="orderspage" class="orderspage">
+    <Header :title="`Мои Заказы`"/>
     <OrderCard
       v-for="(order, index) in $options.$orders"
       :key="index"
@@ -11,7 +12,8 @@
 </template>
 
 <script>
-import NavBar from "../components/NavBar/NavBar.vue";
+import NavBar from "../components/Base/NavBar.vue";
+import Header from "../components/Base/Header.vue";
 import OrderCard from "../components/OrderCard.vue";
 import { ordersitems } from "../config/orders-items.js";
 
@@ -20,6 +22,7 @@ export default {
   components: {
     NavBar,
     OrderCard,
+    Header,
   },
   $orders: ordersitems,
 };

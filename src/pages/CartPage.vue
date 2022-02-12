@@ -1,19 +1,15 @@
 <template>
   <section id="cartpage">
-    <div class="rest">
-      <div class="textinfo">
-        <p class="restname">Mamma Mia</p>
-        <p class="restadress">ул. Панфилова 109</p>
-      </div>
-    </div>
+    <Header :title="`Корзина`" :icon="true"/>
+    <OrderDetailsTop :restname="`Mamma Mia`" :restaddress="`ул. Панфилова 109`"/>
 
     <div class="divider"></div>
 
     <h4>Мой заказ</h4>
 
     <CartCard
-      v-for="item in $options.$items"
-      :key="item"
+      v-for="(item, index) in $options.$items"
+      :key="index"
       :imgPath="getImgUrl(item.imgPath)"
       :imgAlt="item.imgAlt"
       :orderName="item.orderName"
@@ -30,15 +26,19 @@
 </template>
 
 <script>
+import OrderDetailsTop from "../components/OrderDetails/OrderDetailsTop.vue"
 import CartCard from "../components/Cart/CartCard.vue";
 import ButtonPay from "../components/ButtonPay.vue";
+import Header from "../components/Base/Header.vue";
 import { cartitems } from "../config/cart-tems.js";
 
 export default {
   name: "CartPage",
   components: {
+    Header,
     CartCard,
     ButtonPay,
+    OrderDetailsTop,
   },
   data() {
     return {
@@ -61,6 +61,11 @@ export default {
 };
 </script>
 
+<style scoped>
+.divider{
+  margin-top: 16px;
+}
+</style>
 <style>
 *,
 *::before,
@@ -137,91 +142,7 @@ h4 {
   line-height: 16px;
 }
 
-.orderblock {
-  width: 100%;
-}
 
-.foodorder {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.foodorder > .foodorder_info > .foodorder_name {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  /* identical to box height, or 114% */
-  margin-left: 17px;
-  margin-bottom: 8px;
-}
-
-.foodorder > .foodorder_info > .foodorder_price {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
-  /* identical to box height, or 114% */
-  width: fit-content;
-  margin-left: 17px;
-  text-align: right;
-}
-
-.foodorder > .foodorder_photo {
-  margin-right: 16px;
-  position: relative;
-}
-
-.foodorder > .foodorder_photo > img {
-  height: 53px;
-}
-
-.foodorder > .foodorder_photo > .foodorder_counter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  position: absolute;
-  width: 99px;
-  height: 35px;
-  top: 32px;
-  right: -1px;
-  background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.foodorder > .foodorder_photo > .foodorder_counter > p {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 26px;
-  color: #2997ff;
-}
-.btn {
-  border: none;
-  background-color: white;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 26px;
-  color: #2997ff;
-}
-
-.foodorder > .foodorder_photo > .foodorder_counter > .count {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #131113;
-}
 
 /* Line divider */
 

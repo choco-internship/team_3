@@ -37,7 +37,7 @@ const router = new VueRouter({
     },
     {
       name: "OrderDetailsPage",
-      path: "/orders/:ordernumber",
+      path: "/orders/:ordernumber/:orderID",
       component: OrderDetailsPage,
       props: true,
     }
