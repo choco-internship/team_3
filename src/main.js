@@ -1,10 +1,51 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import CartPage from "./pages/CartPage.vue";
+import OrdersPage from "./pages/OrdersPage.vue";
+import OrderDetialsPage from "./pages/OrderDetailsPage.vue";
+import MainPage from "./pages/MainPage.vue";
 
-Vue.config.productionTip = false
+import "./assets/css/style.css";
+
+Vue.use(VueRouter);
+Vue.config.productionTip = false;
+
+const MainApp = {
+  name: "MainApp",
+  template: "<router-view></router-view>",
+};
+
+const router = new VueRouter({
+  mode: "history",
+  routes: [
+    {
+      path: "",
+      name: "MainPage",
+      component: MainPage,
+    },
+    {
+      name: "CartPage",
+      path: "/cart",
+      component: CartPage,
+      props: true,
+    },
+    {
+      name: "OrdersPage",
+      path: "/orders",
+      component: OrdersPage,
+      props: true,
+    },
+    {
+      name: "OrderDetailsPage",
+      path: "/mama",
+      component: OrderDetialsPage,
+      props: true,
+    }
+  ],
+});
 
 new Vue({
   router,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(MainApp),
+}).$mount("#menupage");
+

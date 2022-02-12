@@ -1,0 +1,135 @@
+<template>
+  <div class="orderspage__order">
+    <div class="orderspage__order-left">
+      <h3 class="orderspage__order-rest">{{ this.restName }}</h3>
+      <span class="orderspage__order-price">{{ this.addSpaceNum() }} тг</span>
+      <span class="orderspage__order-status">
+        Стасус -
+        <span :style="`color: ${this.whichStatus()}`">
+          {{ this.orderStatus }}
+        </span>
+      </span>
+    </div>
+
+    <span class="orderspage__order-date"> {{ this.orderDate }} </span>
+    <svg
+      @click="checkOrderDetails()"
+      class="orderspage__order-details"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.99997 6L8.58997 7.41L13.17 12L8.58997 16.59L9.99997 18L16 12L9.99997 6Z"
+        fill="#8F8F8F"
+      />
+    </svg>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "OrderCard",
+  data() {
+    return {
+      page: "OrderDetailsPage",
+    };
+  },
+  methods: {
+    addSpaceNum() {
+      let result = this.orderCost.toLocaleString();
+      return result;
+    },
+    whichStatus() {
+      let color;
+      if (this.orderStatus === "В обработке") {
+        color = "#2997FF";
+      } else if (this.orderStatus === "Готов") {
+        color = "#A3CFA3";
+      } else if (this.orderStatus === "На кухне") {
+        color = "#E68D49";
+      } else color = "";
+      return color;
+    },
+    checkOrderDetails() {
+      this.$router.push({ name: `${this.page}` });
+    },
+  },
+  props: {
+    restName: {
+      type: String,
+      required: true,
+    },
+    orderCost: {
+      type: Number,
+      required: true,
+    },
+    orderStatus: {
+      type: String,
+      required: true,
+    },
+    orderDate: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style>
+.orderspage__order {
+  position: relative;
+  padding: 16px 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: white;
+  margin-top: 20px;
+  height: 100px;
+  width: 100%;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+.orderspage__order-rest {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.orderspage__order-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderspage__order-date,
+.orderspage__order-price,
+.orderspage__order-status {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #8f8f8f;
+}
+
+.orderspage__order-date {
+  text-align: right;
+  padding-right: 52px;
+}
+.orderspage__order-price,
+.orderspage__order-status {
+  padding-top: 8px;
+}
+
+.orderspage__order-details {
+  position: absolute;
+  top: 44px;
+  right: 16px;
+}
+</style>
