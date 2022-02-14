@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import MenuPage from '../components/menuPage';
-import cartPage from "../components/cartPage";
-import menuListPage from "../components/menuListPage";
+import MenuPage from '../pages/MenuPage';
+import cartPage from "../pages/CartPage";
+import menuListPage from "../pages/MenuListPage";
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,7 +39,7 @@ const routes = [
     component: cartPage
   },
   {
-    path: '/menuList',
+    path: '/menuList/:id',
     name: 'menuListPage',
     component: menuListPage
   }

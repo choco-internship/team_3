@@ -19,7 +19,7 @@
 
 <script>
 import {restaraunts} from "../config/mock";
-import Header from "../components/Header";
+import Header from "../components/organisms/BaseHeader";
 
 export default {
   name: 'Home',

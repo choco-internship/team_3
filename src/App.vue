@@ -27,7 +27,6 @@ body {
   text-align: center;
   color: #2c3e50;
 }
-
 .nav-bottom {
   background: #fff;
   position: fixed;
@@ -44,7 +43,6 @@ body {
   font-weight: bold;
   color: #2c3e50;
 }
-
 .nav-bottom a.router-link-exact-active {
   color: #2997FF;
 }

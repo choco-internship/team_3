@@ -42,7 +42,5 @@ export default {
   font-style: normal;
   font-weight: bold;
   line-height: 20px;
-
 }
-
 </style>

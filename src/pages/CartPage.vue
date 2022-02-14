@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import Header from "./Header";
+import Header from "../components/organisms/BaseHeader";
 export default {
   name: "cartPage",
   data() {

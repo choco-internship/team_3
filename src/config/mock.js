@@ -7,6 +7,7 @@ export const restaraunts = [
         rest_menu: [
             {
                 title: "Пицца",
+                quantity: 23,
                 productList: [
                     {
                         p_title: "Пицца Маргарита",
@@ -36,6 +37,7 @@ export const restaraunts = [
             },
             {
                 title: "Напитки",
+                quantity: 12,
                 productList: [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
@@ -53,6 +55,109 @@ export const restaraunts = [
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
                         p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Салаты",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Супы",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Паста",
+                quantity: 3,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Горячее",
+                quantity: 5,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Чай",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+
+                ]
+            },
+            {
+                title: "Десерты",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
                         p_img: "",
                     },
                 ]
@@ -67,6 +172,7 @@ export const restaraunts = [
         rest_menu: [
             {
                 title: "Пицца",
+                quantity: 23,
                 productList: [
                     {
                         p_title: "Пицца Маргарита",
@@ -96,6 +202,7 @@ export const restaraunts = [
             },
             {
                 title: "Напитки",
+                quantity: 12,
                 productList: [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
@@ -113,6 +220,109 @@ export const restaraunts = [
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
                         p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Салаты",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Супы",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Паста",
+                quantity: 3,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Горячее",
+                quantity: 5,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Чай",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+
+                ]
+            },
+            {
+                title: "Десерты",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
                         p_img: "",
                     },
                 ]
@@ -127,6 +337,7 @@ export const restaraunts = [
         rest_menu: [
             {
                 title: "Пицца",
+                quantity: 23,
                 productList: [
                     {
                         p_title: "Пицца Маргарита",
@@ -156,6 +367,7 @@ export const restaraunts = [
             },
             {
                 title: "Напитки",
+                quantity: 12,
                 productList: [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
@@ -173,6 +385,109 @@ export const restaraunts = [
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
                         p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Салаты",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Супы",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Паста",
+                quantity: 3,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Горячее",
+                quantity: 5,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Чай",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+
+                ]
+            },
+            {
+                title: "Десерты",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
                         p_img: "",
                     },
                 ]
@@ -187,6 +502,7 @@ export const restaraunts = [
         rest_menu: [
             {
                 title: "Пицца",
+                quantity: 23,
                 productList: [
                     {
                         p_title: "Пицца Маргарита",
@@ -216,6 +532,7 @@ export const restaraunts = [
             },
             {
                 title: "Напитки",
+                quantity: 12,
                 productList: [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
@@ -233,6 +550,109 @@ export const restaraunts = [
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
                         p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Салаты",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Супы",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Паста",
+                quantity: 3,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Горячее",
+                quantity: 5,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Чай",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+
+                ]
+            },
+            {
+                title: "Десерты",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
                         p_img: "",
                     },
                 ]
@@ -247,6 +667,7 @@ export const restaraunts = [
         rest_menu: [
             {
                 title: "Пицца",
+                quantity: 23,
                 productList: [
                     {
                         p_title: "Пицца Маргарита",
@@ -276,6 +697,7 @@ export const restaraunts = [
             },
             {
                 title: "Напитки",
+                quantity: 12,
                 productList: [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
@@ -293,6 +715,109 @@ export const restaraunts = [
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
                         p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Салаты",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Супы",
+                quantity: 2,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Паста",
+                quantity: 3,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Горячее",
+                quantity: 5,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 600 ₸",
+                        p_img: "",
+                    },
+                ]
+            },
+            {
+                title: "Чай",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
+                        p_img: "",
+                    },
+
+                ]
+            },
+            {
+                title: "Десерты",
+                quantity: 1,
+                productList: [
+                    {
+                        p_title: "Фреш Яблочный, 500 мл",
+                        p_desc: "",
+                        p_price: "1 950 ₸",
                         p_img: "",
                     },
                 ]
