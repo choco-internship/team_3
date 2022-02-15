@@ -13,7 +13,6 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
     },
     icon: {
       type: String
@@ -31,6 +30,7 @@ export default {
   line-height: 20px;
   color: #131113;
   padding: 0 20px;
+  height: 60px;
 }
 .header img {
   width: 14px;

@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import MenuPage from '../pages/MenuPage';
 import cartPage from "../pages/CartPage";
 import menuListPage from "../pages/MenuListPage";
+import Registration from "../pages/Registration";
 Vue.use(VueRouter)
 
 const routes = [
@@ -42,6 +43,11 @@ const routes = [
     path: '/menuList/:id',
     name: 'menuListPage',
     component: menuListPage
+  },
+  {
+    path: '/reg',
+    name: 'Registration',
+    component: Registration
   }
 ]
 
