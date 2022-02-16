@@ -1,18 +1,15 @@
 <template>
   <div id="app">
     <router-view/>
-    <NavBar :pageActive="'MainPage'"/>
   </div>
 </template>
 
 <script>
 
 
-import NavBar from "./components/atoms/NavBar";
 export default {
   name: "App",
   components: {
-    NavBar
   }
 }
 </script>
@@ -25,7 +22,7 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #F8F8F8;
 }
 #app {
   font-family: Roboto;

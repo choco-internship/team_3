@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="registrationPage">
     <Header title="" :icon="true"/>
     <div class="registration">
       <p class="pageTitle">
@@ -70,6 +70,13 @@ export default {
 </script>
 
 <style scoped>
+.registrationPage {
+  background: #fff;
+  height: 100vh;
+}
+.registrationPage header {
+  box-shadow: none;
+}
 .registration {
   display: flex;
   flex-direction: column;
@@ -132,7 +139,8 @@ export default {
   text-decoration: underline;
 }
 .nextButton {
-  margin-top: 280px;
+  position: fixed;
+  bottom: 24px;
   background: #DE2D49;
   border-radius: 4px;
   padding: 12px 57px;

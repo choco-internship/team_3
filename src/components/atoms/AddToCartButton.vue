@@ -1,14 +1,14 @@
 <template>
-  <button class="cart_button" :class="totalPrice===0&&productQty===0 ? 'blockDisplay' : ''" @click="$router.push('/cartPage')">
-    <p v-if="productQty" class="button_quantity">{{ productQty }} шт.</p>
+  <button class="cart_button" v-if="productQty" @click="$router.push('/cartPage')">
+    <p class="button_quantity">{{ productQty }} шт.</p>
     <p class="button_text">{{ buttonText }}</p>
-    <p v-if="totalPrice" class="all_price">{{ totalPrice }} ₸</p>
+    <p class="all_price">{{ totalPrice }} ₸</p>
   </button>
 </template>
 
 <script>
 export default {
-  name: "CartButton",
+  name: "AddToCartButton",
   props: {
     buttonText: {
       type: String,
@@ -30,6 +30,8 @@ export default {
   display: block !important;
 }
 .cart_button {
+  position: fixed;
+  bottom: 0;
   border: none;
   background: #2997FF;
   border-radius: 12px;

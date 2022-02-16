@@ -33,7 +33,7 @@
           <Divider />
         </div>
       </div>
-      <CartButton
+      <AddToCartButton
           :buttonText="buttonText"
           :productQty="buttonQty"
           :totalPrice="buttonTotalPrice"
@@ -46,7 +46,7 @@
 import Header from "../components/organisms/BaseHeader";
 import ProductListItem from "../components/molecules/ProductListItem";
 import {restaraunts} from "../config/mock";
-import CartButton from "../components/atoms/CartButton";
+import AddToCartButton from "../components/atoms/AddToCartButton";
 import Divider from "../components/atoms/Divider";
 import Slider from "../components/molecules/Slider";
 
@@ -65,7 +65,7 @@ export default {
   components: {
     Slider,
     Divider,
-    CartButton,
+    AddToCartButton,
     ProductListItem,
     Header,
   },
@@ -83,8 +83,8 @@ export default {
 <style scoped>
 .menuPage {
   padding-bottom: 50px;
+  padding-top: 60px;
   background: #fff;
-
 }
 .address {
   font-weight: normal;

@@ -1,0 +1,22 @@
+section > .restaraunt > .rest > .textinfo {
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  width: 100%;
+}
+.between {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 100vw;
+}
+
+.betweenline {
+  height: 1px;
+  width: 100%;
+  margin: 0px 16px;
+  background: #ececec;
+}

@@ -13,6 +13,7 @@
         <div class="betweenline"></div>
       </div>
     </section>
+    <NavBar />
   </div>
 
 </template>
@@ -20,6 +21,7 @@
 <script>
 import {restaraunts} from "../config/mock";
 import Header from "../components/organisms/BaseHeader";
+import NavBar from "../components/atoms/NavBar";
 
 export default {
   name: 'Home',
@@ -29,15 +31,16 @@ export default {
     }
   },
   components: {
-    Header
+    NavBar,
+    Header,
   },
   $products: restaraunts
 }
 </script>
 <style scoped>
 .mainPage {
-  height: 100vh;
-  padding-bottom: 60px;
+  background: #fff;
+  height: calc(100vh - 60px);
   padding-top: 60px;
 }
 /* Header */

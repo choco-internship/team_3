@@ -1,7 +1,5 @@
 <template>
-  <div class="myOrders">
-    <OrdersPage />
-  </div>
+  <OrdersPage />
 </template>
 
 <script>
@@ -13,9 +11,5 @@ export default {
 </script>
 
 <style scoped>
-.myOrders {
-  /*height: 100vh;*/
-  width: 100%;
-  padding-bottom: 60px;
-}
+
 </style>

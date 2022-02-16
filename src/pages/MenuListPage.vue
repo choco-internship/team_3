@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="menuListPage">
     <Header :title="this.pageTitle" :icon="true" />
     <section class="menuList">
       <ul class="menu" v-for="(product,idx) in products[$route.params.id-1].rest_menu" :key="idx">
@@ -29,6 +29,11 @@ export default {
 
 <style scoped>
 /*Menu List*/
+.menuListPage {
+  background: #fff;
+  height: calc(100vh - 60px);
+  padding-top: 60px;
+}
 .menu {
   display: flex;
   flex-direction: column;

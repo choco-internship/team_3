@@ -24,6 +24,10 @@ export default {
 <style scoped>
 /*Header*/
 .header {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 2;
   display: flex;
   align-items: center;
   font-size: 20px;
