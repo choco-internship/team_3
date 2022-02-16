@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a v-if="icon" @click="$router.back()">
-      <img :src="icon" alt="">
+      <img :src="require('@/assets/images/arrow_back.svg')" alt="">
     </a>
     <p class="title">{{ title }}</p>
   </header>
@@ -15,7 +15,7 @@ export default {
       type: String,
     },
     icon: {
-      type: String
+      type: Boolean
     }
   }
 }
@@ -31,6 +31,8 @@ export default {
   color: #131113;
   padding: 0 20px;
   height: 60px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
 .header img {
   width: 14px;

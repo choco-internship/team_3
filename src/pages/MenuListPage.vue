@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :title="this.pageTitle" :icon="require('../assets/img/arrow_back.svg')" />
+    <Header :title="this.pageTitle" :icon="true" />
     <section class="menuList">
       <ul class="menu" v-for="(product,idx) in products[$route.params.id-1].rest_menu" :key="idx">
         <li class="menu_item">

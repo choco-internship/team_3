@@ -12,25 +12,25 @@ export const restaraunts = [
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/margarita.png"),
                     },
                     {
                         p_title: "Пицца Пепперони",
                         p_desc: "Любая маленькая пицца на выбор, порция фри и Coca Cola",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/pepperoni.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/kalcone.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/mexicano.png"),
                     },
                 ]
@@ -42,19 +42,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -66,13 +66,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -84,13 +84,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -102,19 +102,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -126,13 +126,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -144,7 +144,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
 
@@ -157,7 +157,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                 ]
@@ -177,25 +177,25 @@ export const restaraunts = [
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/margarita.png"),
                     },
                     {
                         p_title: "Пицца Пепперони",
                         p_desc: "Любая маленькая пицца на выбор, порция фри и Coca Cola",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/pepperoni.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/kalcone.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/mexicano.png"),
                     },
                 ]
@@ -207,19 +207,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -231,13 +231,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -249,13 +249,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -267,19 +267,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -291,13 +291,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -309,7 +309,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
 
@@ -322,7 +322,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                 ]
@@ -342,25 +342,25 @@ export const restaraunts = [
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/margarita.png"),
                     },
                     {
                         p_title: "Пицца Пепперони",
                         p_desc: "Любая маленькая пицца на выбор, порция фри и Coca Cola",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/pepperoni.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/kalcone.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/mexicano.png"),
                     },
                 ]
@@ -372,19 +372,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -396,13 +396,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -414,13 +414,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -432,19 +432,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -456,13 +456,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -474,7 +474,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
 
@@ -487,7 +487,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                 ]
@@ -507,25 +507,25 @@ export const restaraunts = [
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/margarita.png"),
                     },
                     {
                         p_title: "Пицца Пепперони",
                         p_desc: "Любая маленькая пицца на выбор, порция фри и Coca Cola",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/pepperoni.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/kalcone.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/mexicano.png"),
                     },
                 ]
@@ -537,19 +537,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -561,13 +561,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -579,13 +579,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -597,19 +597,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -621,13 +621,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -639,7 +639,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
 
@@ -652,7 +652,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                 ]
@@ -672,25 +672,25 @@ export const restaraunts = [
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/margarita.png"),
                     },
                     {
                         p_title: "Пицца Пепперони",
                         p_desc: "Любая маленькая пицца на выбор, порция фри и Coca Cola",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/pepperoni.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/kalcone.png"),
                     },
                     {
                         p_title: "Пицца Маргарита",
                         p_desc: "Одна строка описания чего-то",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: require("../assets/img/mexicano.png"),
                     },
                 ]
@@ -702,19 +702,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -726,13 +726,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -744,13 +744,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -762,19 +762,19 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -786,13 +786,13 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 600 ₸",
+                        p_price: 1600,
                         p_img: "",
                     },
                 ]
@@ -804,7 +804,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
 
@@ -817,7 +817,7 @@ export const restaraunts = [
                     {
                         p_title: "Фреш Яблочный, 500 мл",
                         p_desc: "",
-                        p_price: "1 950 ₸",
+                        p_price: 1950,
                         p_img: "",
                     },
                 ]

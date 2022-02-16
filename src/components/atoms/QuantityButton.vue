@@ -13,19 +13,33 @@
 <script>
 export default {
   name: "QuantityButton",
+  props: {
+    productCost: {
+      type: Number
+    },
+    productQty: {
+      type: Number
+    }
+  },
   data() {
     return {
       count: 0,
+      qtyUpdatedButton: 0,
     }
   },
   methods: {
     increaseQty() {
       this.count += 1;
+      this.$emit('countUpdated', this.productCost);
+      this.$emit('qtyUpdated', 1)
     },
     decreaseQty() {
       if(this.count >0) {
         this.count -=1
       }
+      this.qtyUpdatedButton =  this.count
+      this.$emit('countUpdated', -this.productCost);
+      this.$emit('qtyUpdated', -1)
     }
   }
 }

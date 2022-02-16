@@ -5,6 +5,8 @@ import MenuPage from '../pages/MenuPage';
 import cartPage from "../pages/CartPage";
 import menuListPage from "../pages/MenuListPage";
 import Registration from "../pages/Registration";
+import OrdersPage from "../pages/OrdersPage";
+import OrderDetailsPage from "../pages/OrderDetailsPage";
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,14 +14,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/myorders',
-    name: 'MyOrders',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/MyOrders.vue')
   },
   {
     path: '/rakhmet',
@@ -48,6 +42,18 @@ const routes = [
     path: '/reg',
     name: 'Registration',
     component: Registration
+  },
+  {
+    name: "OrdersPage",
+    path: "/orders",
+    component: OrdersPage,
+    props: true,
+  },
+  {
+    name: "OrderDetailsPage",
+    path: "/orders/:ordernumber/:orderID",
+    component: OrderDetailsPage,
+    props: true,
   }
 ]
 

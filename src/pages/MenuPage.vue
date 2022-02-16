@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :title="products[$route.params.id-1].rest_name" :icon="require('../assets/img/arrow_back.svg')"/>
+    <Header :title="products[$route.params.id-1].rest_name" :icon="true"/>
     <div class="menuPage">
       <Slider />
       <p class="address">{{ products[$route.params.id-1].rest_address }}</p>
@@ -25,14 +25,18 @@
                 :desc="p.p_desc"
                 :img="p.p_img"
                 :product_name="p.p_title"
+                :totalPrice="buttonTotalPrice"
+                :buttonQty="buttonQty"
+                @totalPriceUpdated="totalPriceUpdated($event)"
+                @totalQtyUpdated="totalQtyUpdated($event)"
             />
           <Divider />
         </div>
       </div>
       <CartButton
           :buttonText="buttonText"
-          :productQty="1"
-          :totalPrice="1600"
+          :productQty="buttonQty"
+          :totalPrice="buttonTotalPrice"
       />
     </div>
   </div>
@@ -54,6 +58,8 @@ export default {
       pageTitle: "Mamma mia",
       products: restaraunts,
       buttonText: "Корзина",
+      buttonTotalPrice: 0,
+      buttonQty: 0,
     }
   },
   components: {
@@ -62,6 +68,14 @@ export default {
     CartButton,
     ProductListItem,
     Header,
+  },
+  methods: {
+    totalPriceUpdated(totalPrice) {
+      this.buttonTotalPrice = totalPrice
+    },
+    totalQtyUpdated(q) {
+      this.buttonQty = q
+    }
   }
 }
 </script>
@@ -69,6 +83,8 @@ export default {
 <style scoped>
 .menuPage {
   padding-bottom: 50px;
+  background: #fff;
+
 }
 .address {
   font-weight: normal;
@@ -123,7 +139,7 @@ nav {
 }
 .title_products {
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 16px;
   line-height: 16px;
   margin-left: 16px;

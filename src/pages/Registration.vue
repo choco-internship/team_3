@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="" :icon="require('../assets/img/arrow_back.svg')"/>
+    <Header title="" :icon="true"/>
     <div class="registration">
       <p class="pageTitle">
         Регистрация
@@ -75,9 +75,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-p {
-  margin: 0;
-}
+
 .pageTitle {
   margin-top: 28px;
   margin-bottom: 12px;

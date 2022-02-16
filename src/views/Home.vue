@@ -1,6 +1,6 @@
 <template>
   <div class="mainPage">
-    <Header :title="pageTitle" :icon="null" />
+    <Header :title="pageTitle" :icon="false" />
     <section id="menupage" v-for="(p,i) in $options.$products" :key="i">
       <router-link :to="/menu/+p.id" class="rest">
           <img :src="p.rest_img" alt="Del Papa Image"/>

@@ -1,18 +1,21 @@
 <template>
   <div class="myOrders">
-    <h1>This is an My Orders page</h1>
+    <OrdersPage />
   </div>
 </template>
 
 <script>
+import OrdersPage from "../pages/OrdersPage";
 export default {
-  name: "MyOrders"
+  name: "MyOrders",
+  components: {OrdersPage}
 }
 </script>
 
 <style scoped>
 .myOrders {
   /*height: 100vh;*/
+  width: 100%;
   padding-bottom: 60px;
 }
 </style>

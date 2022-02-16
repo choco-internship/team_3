@@ -3,12 +3,17 @@
     <div class="product_info">
       <p class="product_name">{{name}}</p>
       <p v-if="desc" class="product_desc">{{desc}}</p>
-      <p class="product_price">{{ price }}</p>
+      <p class="product_price">{{ price }} ₸</p>
     </div>
     <div class="product_img" :class="img?'':'nodisplay'">
       <img :src="img" alt="product image">
     </div>
-    <QuantityButton />
+    <QuantityButton
+      :productCost="price"
+      :productQty="buttonQty"
+      @qtyUpdated="qtyUpdated($event)"
+      @countUpdated="countUpdated($event)"
+    />
   </div>
 </template>
 
@@ -23,15 +28,37 @@ export default {
       required: true,
     },
     price: {
-      type: String
+      type: Number
     },
     desc: {
       type: String
     },
     img: {
       type: String
+    },
+    totalPrice: {
+      type: Number
+    },
+    buttonQty: {
+      type: Number
     }
   },
+  data () {
+    return {
+      updatedTotal: 0,
+      updatedQty: 0,
+    }
+  },
+  methods: {
+    countUpdated(p) {
+      this.updatedTotal = this.totalPrice + p
+      this.$emit('totalPriceUpdated', this.updatedTotal);
+    },
+    qtyUpdated(q) {
+      this.updatedQty = this.buttonQty + q
+      this.$emit('totalQtyUpdated', this.updatedQty);
+    }
+  }
 }
 </script>
 
