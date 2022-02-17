@@ -8,7 +8,7 @@
               :pageName="p.title"
               :pageImg="getImgUrl(p.img, p.id)"
               :isActive="getActive(p.id)"
-              @activePage="checkedPage"
+              @activePage="checkedPage($event)"
           />
         </router-link>
       </div>
@@ -32,7 +32,6 @@ export default {
           id: 1,
           title: "Главная",
           img: "Home",
-          // activeimg: require("@/assets/images/NavImages/activeHome.png"),
           path: '/',
 
         },
@@ -40,7 +39,6 @@ export default {
           id: 2,
           title: "Мои заказы",
           img: "Order",
-          // activeimg: require("@/assets/images/NavImages/Order.png"),
           path: '/orders',
         },
         {
@@ -51,6 +49,11 @@ export default {
         },
       ],
     };
+  },
+  watch: {
+    pageActive: function (newPageId) {
+      this.pageActive = newPageId
+    },
   },
   methods: {
     checkedPage(value_from_child) {

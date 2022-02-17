@@ -82,7 +82,7 @@ export default {
   background: white;
   margin-top: 20px;
   height: 100px;
-  width: 100%;
+  /*width: 100%;*/
   border-top: 1px solid #ececec;
   border-bottom: 1px solid #ececec;
 }

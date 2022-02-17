@@ -26,6 +26,11 @@ export default {
       type: String,
     },
   },
+  data() {
+    return {
+      pageActive: null,
+    }
+  },
   methods: {
     checkActive(id){
       this.pageActive = id
