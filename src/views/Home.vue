@@ -1,12 +1,12 @@
 <template>
   <div class="mainPage">
     <Header :title="pageTitle" :icon="false" />
-    <section id="menupage" v-for="(p,i) in $options.$products" :key="i">
+    <section id="menupage" v-for="(p,i) in products" :key="i">
       <router-link :to="/menu/+p.id" class="rest">
           <img :src="p.rest_img" alt="Del Papa Image"/>
           <div class="textinfo">
-            <p class="restname">{{ p.rest_name }}</p>
-            <p class="restadress">{{ p.rest_address }}</p>
+            <p class="restname">{{ p.name }}</p>
+            <p class="restadress">{{ p.email }}</p>
           </div>
       </router-link>
       <div class="between">
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import {restaraunts} from "../config/mock";
 import Header from "../components/organisms/BaseHeader";
 import NavBar from "../components/atoms/NavBar";
 
@@ -30,11 +29,18 @@ export default {
       pageTitle: "Заказ с собой"
     }
   },
+  computed: {
+    products() {
+      return this.$store.state.products;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('getProducts');
+  },
   components: {
     NavBar,
     Header,
   },
-  $products: restaraunts
 }
 </script>
 <style scoped>

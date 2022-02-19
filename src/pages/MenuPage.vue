@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Header :title="products[$route.params.id-1].rest_name" :icon="true"/>
+    <Header :title="products[$route.params.id-1].name" :icon="true"/>
     <div class="menuPage">
       <Slider />
-      <p class="address">{{ products[$route.params.id-1].rest_address }}</p>
+      <p class="address">{{ products[$route.params.id-1].email }}</p>
       <nav>
         <router-link :to="{ path: '/menuList/'+$route.params.id }" class="burger_menu">
           <img src="../assets/img/burger_menu.svg" alt="">
         </router-link>
         <ul class="menu">
-          <div v-for="(product,idx) in products[$route.params.id-1].rest_menu" :key="idx">
+          <div v-for="(product,idx) in products[$route.params.id-1].address" :key="idx">
             <li class="menu_item">
-              {{ product.title }}
+              {{ product }}
             </li>
           </div>
         </ul>
@@ -45,7 +45,7 @@
 <script>
 import Header from "../components/organisms/BaseHeader";
 import ProductListItem from "../components/molecules/ProductListItem";
-import {restaraunts} from "../config/mock";
+// import {restaraunts} from "../config/mock";
 import AddToCartButton from "../components/atoms/AddToCartButton";
 import Divider from "../components/atoms/Divider";
 import Slider from "../components/molecules/Slider";
@@ -56,11 +56,19 @@ export default {
   data() {
     return {
       pageTitle: "Mamma mia",
-      products: restaraunts,
+      // products: restaraunts,
       buttonText: "Корзина",
       buttonTotalPrice: 0,
       buttonQty: 0,
     }
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('getProducts');
   },
   components: {
     Slider,
