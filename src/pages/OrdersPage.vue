@@ -21,14 +21,13 @@ export default {
   name: "OrdersPage",
   data() {
     return {
-      pageTitle: "Мои Заказы"
-    }
+      pageTitle: "Мои Заказы",
+    };
   },
   components: {
     NavBar,
     OrderCard,
     Header,
-    
   },
   $orders: ordersitems,
 };

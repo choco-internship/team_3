@@ -30,7 +30,7 @@ html {
   overflow-x: hidden;
 }
 #app {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

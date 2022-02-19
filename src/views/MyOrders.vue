@@ -1,10 +1,12 @@
 <template>
   <OrdersPage v-if="this.registered" />
-  <OrderRegistrationPage v-else-if="!this.registered" @changeRegistration="change($event)"/>
+  <OrderRegistrationPage
+    v-else-if="!this.registered"
+    @changeRegistration="change($event)"
+  />
 </template>
 
 <script>
-
 import OrdersPage from "../pages/OrdersPage";
 import OrderRegistrationPage from "../pages/OrderRegistrationPage";
 export default {
@@ -12,16 +14,16 @@ export default {
   data() {
     return {
       registered: false,
-      pageTitle: "Мои Заказы"
-    }
+      pageTitle: "Мои Заказы",
+    };
   },
-  methods:{
+  methods: {
     change(given) {
       this.registered = given;
-    }
+    },
   },
-  components: {OrderRegistrationPage, OrdersPage},
-}
+  components: { OrderRegistrationPage, OrdersPage },
+};
 </script>
 
 <style scoped>
