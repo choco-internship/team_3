@@ -7,7 +7,7 @@
         :order="order"
         :orderId="index"
     />
-    <NavBar />
+    <NavBar :pageActive = "'Orders'"/>
   </div>
 </template>
 

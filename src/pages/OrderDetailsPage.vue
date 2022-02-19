@@ -15,7 +15,7 @@
     />
     <div class="divider"></div>
     <OrderDetailsCosts :order="$options.$orders[this.orderID]" />
-    <NavBar :pageActive="'OrdersPage'" />
+    <NavBar :pageActive="'Orders'" />
   </section>
 </template>
 
