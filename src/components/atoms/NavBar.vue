@@ -1,6 +1,7 @@
 <template>
   <nav class="navigation">
     <ul class="navigation__list">
+<<<<<<< HEAD
       <NavBarItem
         v-for="i in [0, 1, 2]"
         :key="i"
@@ -9,6 +10,19 @@
         :pageImg="getImgUrl(pageImgs[i], pagePaths[i])"
         :isActive="getActive(pagePaths[i])"
       />
+=======
+      <div v-for="p in pages" :key="p.id">
+        <router-link :to="p.path">
+          <NavBarItem
+              :pageId="p.id"
+              :pageName="p.title"
+              :pageImg="getImgUrl(p.img, p.id)"
+              :isActive="getActive(p.id)"
+              @activePage="checkedPage($event)"
+          />
+        </router-link>
+      </div>
+>>>>>>> e86279bf4c5e9507d79d407506411a846c8c2bae
     </ul>
   </nav>
 </template>
@@ -29,10 +43,40 @@ export default {
   },
   data() {
     return {
+<<<<<<< HEAD
       pageNames: ["Главная", "Мои заказы", "Рахмет"],
       pagePaths: ["Home", "OrdersPage", "Rakhmet"],
       pageImgs: ["Home", "Order", "Rakhmet"],
+=======
+      pageActive: 1,
+      pages: [
+        {
+          id: 1,
+          title: "Главная",
+          img: "Home",
+          path: '/',
+
+        },
+        {
+          id: 2,
+          title: "Мои заказы",
+          img: "Order",
+          path: '/orders',
+        },
+        {
+          id: 3,
+          title: "Рахмет",
+          img: "Rakhmet",
+          path: '/rakhmet',
+        },
+      ],
+>>>>>>> e86279bf4c5e9507d79d407506411a846c8c2bae
     };
+  },
+  watch: {
+    pageActive: function (newPageId) {
+      this.pageActive = newPageId
+    },
   },
   methods: {
     getActive(page) {

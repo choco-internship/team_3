@@ -5,8 +5,8 @@ import MenuPage from '../pages/MenuPage';
 import cartPage from "../pages/CartPage";
 import menuListPage from "../pages/MenuListPage";
 import Registration from "../pages/Registration";
-import OrdersPage from "../pages/OrdersPage";
 import OrderDetailsPage from "../pages/OrderDetailsPage";
+import MyOrders from "../views/MyOrders";
 Vue.use(VueRouter)
 
 const routes = [
@@ -44,9 +44,9 @@ const routes = [
     component: Registration
   },
   {
-    name: "OrdersPage",
+    name: "MyOrders",
     path: "/orders",
-    component: OrdersPage,
+    component: MyOrders,
     props: true,
   },
   {

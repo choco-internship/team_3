@@ -26,6 +26,11 @@ export default {
       type: String,
     },
   },
+  data() {
+    return {
+      pageActive: null,
+    }
+  },
   methods: {
     changePage() {
       this.$router.push({ name: `${this.pagePath}` });
