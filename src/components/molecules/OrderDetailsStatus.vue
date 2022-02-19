@@ -52,7 +52,7 @@ export default {
   flex-direction: column;
   background: white;
   padding-left: 16px;
-  width: calc(100% - 16px);
+  width: 100%;
 
 }
 .orderdetailspage__info {

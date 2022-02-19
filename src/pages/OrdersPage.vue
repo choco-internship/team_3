@@ -7,7 +7,7 @@
       :order="order"
       :orderId="index"
     />
-    <NavBar />
+    <NavBar :pageActive="'OrdersPage'" />
   </section>
 </template>
 
@@ -38,7 +38,7 @@ export default {
   /*padding-top: 80px;*/
   background: #f8f8f8;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
   padding-top: 60px;
 }
 </style>

@@ -1,17 +1,14 @@
 <template>
   <nav class="navigation">
     <ul class="navigation__list">
-      <div v-for="p in pages" :key="p.id">
-        <router-link :to="p.path">
-          <NavBarItem
-              :pageId="p.id"
-              :pageName="p.title"
-              :pageImg="getImgUrl(p.img, p.id)"
-              :isActive="getActive(p.id)"
-              @activePage="checkedPage"
-          />
-        </router-link>
-      </div>
+      <NavBarItem
+        v-for="i in [0, 1, 2]"
+        :key="i"
+        :pagePath="pagePaths[i]"
+        :pageName="pageNames[i]"
+        :pageImg="getImgUrl(pageImgs[i], pagePaths[i])"
+        :isActive="getActive(pagePaths[i])"
+      />
     </ul>
   </nav>
 </template>
@@ -21,44 +18,25 @@ import NavBarItem from "./NavBarItem.vue";
 
 export default {
   name: "NavBar",
+  props: {
+    pageActive: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     NavBarItem,
   },
   data() {
     return {
-      pageActive: 1,
-      pages: [
-        {
-          id: 1,
-          title: "Главная",
-          img: "Home",
-          // activeimg: require("@/assets/images/NavImages/activeHome.png"),
-          path: '/',
-
-        },
-        {
-          id: 2,
-          title: "Мои заказы",
-          img: "Order",
-          // activeimg: require("@/assets/images/NavImages/Order.png"),
-          path: '/orders',
-        },
-        {
-          id: 3,
-          title: "Рахмет",
-          img: "Rakhmet",
-          path: '/rakhmet',
-        },
-      ],
+      pageNames: ["Главная", "Мои заказы", "Рахмет"],
+      pagePaths: ["Home", "OrdersPage", "Rakhmet"],
+      pageImgs: ["Home", "Order", "Rakhmet"],
     };
   },
   methods: {
-    checkedPage(value_from_child) {
-      this.pageActive = value_from_child
-      console.log(this.pageActive)
-    },
-    getActive(id) {
-      if (id === this.pageActive) return "active";
+    getActive(page) {
+      if (page === this.pageActive) return "active";
       else return "";
     },
     getImgUrl(imagePath, page) {
@@ -78,9 +56,9 @@ export default {
 .navigation {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-evenly;
   position: fixed;
+  width: auto;
   z-index: 2;
   bottom: -1px;
   height: 56px;
@@ -92,20 +70,17 @@ export default {
 
 .navigation__list {
   width: 100%;
-  padding: 0;
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
 }
 
-.navigation__list a {
-  text-decoration: none !important;
-  color: #AAAAAA;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-
+.navigation__list-item {
+  flex: 1 0 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .navigation__list-item-icon {

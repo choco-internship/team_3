@@ -45,7 +45,7 @@ export default {
 }
 
 .payInterface > p {
-  font-family: Noto Sans;
+  font-family: 'Noto Sans', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;

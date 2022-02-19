@@ -13,7 +13,7 @@
         <div class="betweenline"></div>
       </div>
     </section>
-    <NavBar />
+    <NavBar :pageActive="'Home'" />
   </div>
 
 </template>

@@ -29,8 +29,8 @@ export default {
   display: flex;
   flex-direction: column;
   background: white;
-  margin-top: 2px;
-  /*width: 100%;*/
+  /* margin-top: 2px; */
+  width: 100%;
 }
 
 .orderdetailspage__rest-name {
