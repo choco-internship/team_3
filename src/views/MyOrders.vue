@@ -1,6 +1,6 @@
 <template>
   <OrdersPage v-if="this.registered" />
-  <OrderRegistrationPage v-else-if="!this.registered" />
+  <OrderRegistrationPage v-else-if="!this.registered" @changeRegistration="change($event)"/>
 </template>
 
 <script>
@@ -13,6 +13,11 @@ export default {
     return {
       registered: false,
       pageTitle: "Мои Заказы"
+    }
+  },
+  methods:{
+    change(given) {
+      this.registered = given;
     }
   },
   components: {OrderRegistrationPage, OrdersPage},

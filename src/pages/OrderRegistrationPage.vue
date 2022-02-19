@@ -4,7 +4,7 @@
     <div class="not_registered"> 
         <span>Войдите в свой аккаунт </span>
         <p>Необходимо войти в свой аккаунт, чтобы увидеть историю заказов </p>
-        <button>Войти</button>
+        <button @click="register">Войти</button>
     </div>
     <NavBar :pageActive = "'Orders'"/>
   </div>
@@ -12,7 +12,6 @@
 
 <script>
 
-import { ordersitems } from "../config/orders-items.js";
 import NavBar from "../components/atoms/NavBar";
 import Header from "../components/organisms/BaseHeader";
 export default {
@@ -22,8 +21,12 @@ export default {
       pageTitle: "Мои Заказы"
     }
   },
+  methods: {
+      register() {
+          this.$emit('changeRegistration', true);
+      }
+  },
   components: {Header, NavBar},
-  $orders: ordersitems,
 }
 </script>
 
