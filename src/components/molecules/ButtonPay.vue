@@ -23,7 +23,7 @@ export default {
 /* Pay Button */
 .payButton {
   border: none;
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   display: flex;
   justify-content: center;
