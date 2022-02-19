@@ -28,6 +28,7 @@ export default {
     NavBar,
     OrderCard,
     Header,
+    
   },
   $orders: ordersitems,
 };
