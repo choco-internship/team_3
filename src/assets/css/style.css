@@ -7,11 +7,7 @@ section > .restaraunt > .rest > .textinfo {
   width: 100%;
 }
 .between {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-  width: 100vw;
+
 }
 
 .betweenline {

@@ -1,15 +1,18 @@
 <template>
   <div class="product_list_item">
     <div class="product_info">
-      <p class="product_name">{{name}}</p>
-      <p v-if="desc" class="product_desc">{{desc}}</p>
-      <p class="product_price">{{ price }} ₸</p>
+      <p class="product_name">{{product.p_title}}</p>
+      <p v-if="product.p_desc" class="product_desc">{{product.p_desc}}</p>
+      <p class="product_price">{{ product.p_price }} ₸</p>
     </div>
-    <div class="product_img" :class="img?'':'nodisplay'">
-      <img :src="img" alt="product image">
+    <div class="product_img" :class="product.p_img?'':'nodisplay'">
+      <img v-if="product.p_img" :src="require('@/assets/img/'+product.p_img)" alt="product image">
     </div>
     <QuantityButton
-      :productCost="price"
+      :product="product"
+      :productId="productId"
+      :productTitle="productTitle"
+      :productCost="product.p_price"
       :productQty="buttonQty"
       @qtyUpdated="qtyUpdated($event)"
       @countUpdated="countUpdated($event)"
@@ -23,18 +26,14 @@ export default {
   name: "productListItem",
   components: {QuantityButton},
   props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    price: {
+    productId: {
       type: Number
     },
-    desc: {
+    productTitle: {
       type: String
     },
-    img: {
-      type: String
+    product: {
+      type: Object
     },
     totalPrice: {
       type: Number

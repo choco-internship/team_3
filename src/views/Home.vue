@@ -1,9 +1,9 @@
 <template>
   <div class="mainPage">
     <Header :title="pageTitle" :icon="false" />
-    <section id="menupage" v-for="(p,i) in $options.$products" :key="i">
+    <section id="menupage" v-for="(p,i) in products" :key="i">
       <router-link :to="/menu/+p.id" class="rest">
-          <img :src="p.rest_img" alt="Del Papa Image"/>
+          <img :src="require('../assets/img/'+p.rest_img)" alt="Del Papa Image"/>
           <div class="textinfo">
             <p class="restname">{{ p.rest_name }}</p>
             <p class="restadress">{{ p.rest_address }}</p>
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import {restaraunts} from "../config/mock";
 import Header from "../components/organisms/BaseHeader";
 import NavBar from "../components/atoms/NavBar";
 
@@ -34,7 +33,14 @@ export default {
     NavBar,
     Header,
   },
-  $products: restaraunts
+  computed: {
+    products() {
+      return this.$store.state.products
+    }
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
+  },
 }
 </script>
 <style scoped>
