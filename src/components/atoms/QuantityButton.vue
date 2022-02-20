@@ -14,6 +14,15 @@
 export default {
   name: "QuantityButton",
   props: {
+    productId: {
+      type: Number
+    },
+    productTitle: {
+      type: String
+    },
+    product: {
+      type: Object
+    },
     productCost: {
       type: Number
     },
@@ -25,13 +34,19 @@ export default {
     return {
       count: 0,
       qtyUpdatedButton: 0,
+      cartProduct: {
+        p_id: this.productTitle+""+this.productId,
+        p_title: this.product.p_title,
+        p_price: this.product.p_price,
+        p_img: this.product.p_img,
+      }
     }
   },
   methods: {
     increaseQty() {
       this.count += 1;
       this.$emit('countUpdated', this.productCost);
-      this.$emit('qtyUpdated', 1)
+      this.$store.dispatch("addProductToCart", {p: this.cartProduct, c: this.count})
     },
     decreaseQty() {
       if(this.count >0) {
@@ -39,7 +54,7 @@ export default {
       }
       this.qtyUpdatedButton =  this.count
       this.$emit('countUpdated', -this.productCost);
-      this.$emit('qtyUpdated', -1)
+      this.$store.dispatch("removeProductToCart", {p: this.cartProduct, c: this.count})
     }
   }
 }

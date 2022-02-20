@@ -8,20 +8,17 @@
     <h4>Мой заказ</h4>
 
     <CartCard
-      v-for="(item, index) in $options.$items"
+      v-for="(item, index) in cart"
       :key="index"
-      :imgPath="getImgUrl(item.imgPath)"
-      :imgAlt="item.imgAlt"
-      :orderName="item.orderName"
-      :orderCost="item.orderCost"
-      @counterUpdate="CounterUpdate($event)"
+      :product="item.p"
+      :counter="item.c"
     />
 
     <article class="totalpay">
       <h4>Итого</h4>
-      <h4>{{addSpaceNum()}}</h4>
+      <h4>{{ cartTotalPrice }}</h4>
     </article>
-    <ButtonPay :amount="this.total" />
+    <ButtonPay :amount="cartTotalPrice" />
   </section>
 </template>
 
@@ -30,7 +27,6 @@ import OrderDetailsTop from "../components/molecules/OrderDetailsTop.vue"
 import CartCard from "../components/molecules/CartCard.vue";
 import ButtonPay from "../components/molecules/ButtonPay.vue";
 import Header from "../components/organisms/BaseHeader.vue";
-import { cartitems } from "../config/cart-tems.js";
 
 export default {
   name: "CartPage",
@@ -42,22 +38,17 @@ export default {
   },
   data() {
     return {
-      total: 3200,
+
     };
   },
-  methods: {
-    getImgUrl: function (imagePath) {
-      return require("@/assets/cartImages/" + imagePath + ".png");
+  computed: {
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
     },
-    CounterUpdate(counter) {
-      this.total = this.total + counter;
-    },
-    addSpaceNum() {
-      let result = this.total.toLocaleString();
-      return result;
-    },
+    cart() {
+      return this.$store.state.cart;
+    }
   },
-  $items: cartitems,
 };
 </script>
 
@@ -132,7 +123,6 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 14px;
   height: 25px;
   width: 100vw;
 }

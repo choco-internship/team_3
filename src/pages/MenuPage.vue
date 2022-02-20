@@ -20,11 +20,9 @@
         <p class="title_products">{{product.title}}</p>
         <div class="product_list" v-for="(p,i) in product.productList" :key="i">
             <ProductListItem
-                :name="p.p_title"
-                :price="p.p_price"
-                :desc="p.p_desc"
-                :img="p.p_img"
-                :product_name="p.p_title"
+                :product="p"
+                :productId="i"
+                :productTitle="product.title"
                 :totalPrice="buttonTotalPrice"
                 :buttonQty="buttonQty"
                 @totalPriceUpdated="totalPriceUpdated($event)"
@@ -35,8 +33,8 @@
       </div>
       <AddToCartButton
           :buttonText="buttonText"
-          :productQty="buttonQty"
-          :totalPrice="buttonTotalPrice"
+          :productQty="cartItemCount"
+          :totalPrice="cartTotalPrice"
       />
     </div>
   </div>
@@ -45,7 +43,6 @@
 <script>
 import Header from "../components/organisms/BaseHeader";
 import ProductListItem from "../components/molecules/ProductListItem";
-import {restaraunts} from "../config/mock";
 import AddToCartButton from "../components/atoms/AddToCartButton";
 import Divider from "../components/atoms/Divider";
 import Slider from "../components/molecules/Slider";
@@ -56,7 +53,6 @@ export default {
   data() {
     return {
       pageTitle: "Mamma mia",
-      products: restaraunts,
       buttonText: "Корзина",
       buttonTotalPrice: 0,
       buttonQty: 0,
@@ -68,6 +64,20 @@ export default {
     AddToCartButton,
     ProductListItem,
     Header,
+  },
+  computed: {
+    cartItemCount() {
+      return this.$store.getters.cartItemCount
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
+    },
+    products() {
+      return this.$store.state.products
+    }
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
   },
   methods: {
     totalPriceUpdated(totalPrice) {

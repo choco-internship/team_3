@@ -1,6 +1,10 @@
 <template>
-  <button class="payButton">
-    <div class="payInterface">
+  <button
+      class="payButton"
+      @click="$router.push('/reg')"
+      :disabled="!cartItemCount"
+  >
+    <div class="payInterface" :class="!cartItemCount?'disabled': ''">
       <p>Оплатить</p>
       <p class="payAmount">{{ amount.toLocaleString() }} ₸</p>
     </div>
@@ -16,11 +20,19 @@ export default {
       required: true,
     },
   },
+  computed: {
+    cartItemCount() {
+      return this.$store.getters.cartItemCount
+    },
+  }
 };
 </script>
 
 <style>
 /* Pay Button */
+.disabled {
+  opacity: 0.4;
+}
 .payButton {
   border: none;
   position: fixed;

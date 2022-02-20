@@ -2,15 +2,15 @@
   <div :class="`orderblock ${this.hide}`">
     <div class="foodorder">
       <div class="foodorder_info">
-        <p class="foodorder_name">{{ orderName }}</p>
-        <p class="foodorder_price">{{ addSpaceNum() }} тг</p>
+        <p class="foodorder_name">{{ product.p_title }}</p>
+        <p class="foodorder_price">{{ product.p_price }} тг</p>
       </div>
       <div class="foodorder_photo">
-        <img :src="imgPath" :alt="imgAlt" />
-        <div class="foodorder_counter">
+        <img v-if="product.p_img" :src="require('@/assets/img/' + product.p_img)" />
+        <div class="foodorder_counter" :style="product.p_img? 'top: 32px': 'top: -10px'">
           <button class="btn subtract" @click="this.subItem">-</button>
-          <p class="count">{{ this.count }}</p>
-          <button class="btn addition" @click="this.addItem">+</button>
+          <p class="count">{{ this.counter }}</p>
+          <button class="btn addition" @click="addItem">+</button>
         </div>
       </div>
     </div>
@@ -24,27 +24,17 @@
 export default {
   name: "CartCard",
   props: {
-    imgPath: {
-      type: String,
-      required: true,
+    product: {
+      type: Object,
     },
-    imgAlt: {
-      type: String,
-      required: true,
-    },
-    orderName: {
-      type: String,
-      required: true,
-    },
-    orderCost: {
-      type: Number,
-      required: true,
-    },
+    counter: {
+      type: Number
+    }
   },
   data() {
     return {
-      count: 1,
       hide: "show",
+      updatedFromCardCount: 0,
     };
   },
   methods: {
@@ -54,13 +44,18 @@ export default {
       return result;
     },
     addItem() {
-      this.count += 1;
+      this.counter += 1;
+      this.updatedFromCardCount = this.counter
       this.$emit('counterUpdate', this.orderCost);
+      this.$store.dispatch("addProductToCart", {p: this.product, c: this.updatedFromCardCount})
     },
     subItem() {
-      if (this.count > 0) this.count -= 1;
-      if (this.count == 0) this.hide = "hide";
+      if (this.counter > 0) this.counter -= 1;
+      if (this.counter === 0) this.hide = "hide";
       this.$emit('counterUpdate', -this.orderCost);
+      this.updatedFromCardCount = this.count
+      this.$store.dispatch("removeProductToCart", {p: this.product, c: this.updatedFromCardCount})
+
     },
   },
 };
@@ -75,6 +70,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -105,7 +101,10 @@ export default {
 }
 
 .foodorder > .foodorder_photo > img {
+  width: 98px;
   height: 53px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .foodorder > .foodorder_photo > .foodorder_counter {

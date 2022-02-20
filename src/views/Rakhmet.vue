@@ -2,7 +2,7 @@
   <div class="rakhmetPage">
     <Header :title="pageTitle" :icon="false" />
     <h1>This is an Rakhmet page</h1>
-    <NavBar />
+    <NavBar :pageActive="'Rakhmet'" />
   </div>
 </template>
 
