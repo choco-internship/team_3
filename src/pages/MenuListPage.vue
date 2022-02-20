@@ -14,16 +14,22 @@
 
 <script>
 import Header from "../components/organisms/BaseHeader";
-import {restaraunts} from "../config/mock";
 export default {
   name: "menuListPage",
   components: {Header},
   data() {
     return {
       pageTitle: "Меню",
-      products: restaraunts,
     }
-  }
+  },
+  computed: {
+    products() {
+      return this.$store.state.products
+    }
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
+  },
 }
 </script>
 
@@ -31,7 +37,7 @@ export default {
 /*Menu List*/
 .menuListPage {
   background: #fff;
-  height: calc(100vh - 60px);
+  height: 100vh;
   padding-top: 60px;
 }
 .menu {

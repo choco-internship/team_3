@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a v-if="icon" @click="$router.back()">
-      <img :src="require('@/assets/images/arrow_back.svg')" alt="">
+      <img :src="require('@/assets/img/arrow_back.svg')" alt="">
     </a>
     <p class="title">{{ title }}</p>
   </header>
