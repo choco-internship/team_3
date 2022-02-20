@@ -1,6 +1,6 @@
 <template>
   <section id="orderdetailspage" class="orderdetailspage">
-    <Header :title="pageTitle" :icon="true"/>
+    <Header :title="pageTitle" :icon="true" />
     <OrderDetailsTop
       :restname="$options.$orders[this.orderID].restName"
       :restaddress="$options.$orders[this.orderID].orderAddress"
@@ -15,7 +15,7 @@
     />
     <div class="divider"></div>
     <OrderDetailsCosts :order="$options.$orders[this.orderID]" />
-    <NavBar />
+    <NavBar :pageActive="'Orders'" />
   </section>
 </template>
 
@@ -31,8 +31,8 @@ export default {
   name: "OrdersDetailsPage",
   data() {
     return {
-      pageTitle: "Детали заказа"
-    }
+      pageTitle: "Детали заказа",
+    };
   },
   $orders: ordersitems,
   methods: {
@@ -50,7 +50,7 @@ export default {
   },
   props: {
     orderID: {
-      type: Number,
+      type: [Number, String],
       required: true,
     },
     ordernumber: {
@@ -64,9 +64,8 @@ export default {
 #orderdetailspage {
   padding-top: 60px;
   background: #f8f8f8;
-  width: 100%;
+  /* width: 100%; */
   text-align: start;
-  height: calc(100vh - 60px);
 }
 .order {
   margin-top: 0;

@@ -59,7 +59,7 @@ export default {
     },
     subItem() {
       if (this.count > 0) this.count -= 1;
-      if (this.count === 0) this.hide = "hide";
+      if (this.count == 0) this.hide = "hide";
       this.$emit('counterUpdate', -this.orderCost);
     },
   },

@@ -23,7 +23,7 @@ export default {
 /* Pay Button */
 .payButton {
   border: none;
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ export default {
 }
 
 .payInterface > p {
-  font-family: Noto Sans;
+  font-family: 'Noto Sans', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
