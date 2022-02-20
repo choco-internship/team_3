@@ -42,11 +42,11 @@ export default {
     getImgUrl(imagePath, page) {
       if(page !== 3) {
         if (page === this.pageActive) {
-          return require("@/assets/images/NavImages/active" + imagePath + ".png");
+          return require("@/assets/img/active" + imagePath + ".png");
         }
-        return require("@/assets/images/NavImages/" + imagePath + ".png");
+        return require("@/assets/img/" + imagePath + ".png");
       }
-      return require("@/assets/images/NavImages/" + imagePath + ".png");
+      return require("@/assets/img/" + imagePath + ".png");
     },
   },
 };
