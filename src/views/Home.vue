@@ -1,21 +1,25 @@
 <template>
   <div class="mainPage">
     <Header :title="pageTitle" :icon="false" />
-    <section id="menupage" v-for="(p,i) in products" :key="i">
-      <router-link :to="/menu/+p.id" class="rest">
-          <img :src="require('../assets/img/'+p.rest_img)" alt="Del Papa Image"/>
+    <section id="menupage" >
+      <div v-for="(p, i) in products" :key="i">
+        <router-link :to="/menu/ + p.id" class="rest">
+          <img
+            :src="require('../assets/img/' + p.rest_img)"
+            alt="Del Papa Image"
+          />
           <div class="textinfo">
             <p class="restname">{{ p.rest_name }}</p>
             <p class="restadress">{{ p.rest_address }}</p>
           </div>
-      </router-link>
-      <div class="between">
-        <div class="betweenline"></div>
+        </router-link>
+        <div class="between">
+          <div class="betweenline"></div>
+        </div>
       </div>
     </section>
     <NavBar :pageActive="'Home'" />
   </div>
-
 </template>
 
 <script>
@@ -23,11 +27,11 @@ import Header from "../components/organisms/BaseHeader";
 import NavBar from "../components/atoms/NavBar";
 
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
-      pageTitle: "Заказ с собой"
-    }
+      pageTitle: "Заказ с собой",
+    };
   },
   components: {
     NavBar,
@@ -35,13 +39,13 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products
-    }
+      return this.$store.state.products;
+    },
   },
   mounted() {
     this.$store.dispatch("getProducts");
   },
-}
+};
 </script>
 <style scoped>
 .mainPage {
@@ -83,7 +87,7 @@ header > p {
   align-items: center;
 }
 
-section > .rest {
+div > .rest {
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -94,7 +98,7 @@ section > .rest {
   height: 90px;
 }
 
-section > .rest > img {
+div > .rest > img {
   width: 90px;
   height: 90px;
   flex: none;
@@ -104,7 +108,7 @@ section > .rest > img {
   margin: 0px 16px;
 }
 
-section > .rest > .textinfo > .restname {
+div > .rest > .textinfo > .restname {
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
@@ -121,7 +125,7 @@ section > .rest > .textinfo > .restname {
   flex-grow: 0;
   margin: 8px 0px;
 }
-section > .rest > .textinfo > .restadress {
+div > .rest > .textinfo > .restadress {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -141,7 +145,7 @@ section > .rest > .textinfo > .restadress {
   margin: 8px 0px;
 }
 
-section > .rest > .textinfo {
+div > .rest > .textinfo {
   /* margin-left: 16px; */
   margin-right: 16px;
   display: flex;
@@ -150,7 +154,7 @@ section > .rest > .textinfo {
   padding: 0;
   width: 100%;
 }
-section > .between {
+div > .between {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +162,7 @@ section > .between {
   width: 100vw;
 }
 
-section > .between > .betweenline {
+div > .between > .betweenline {
   height: 1px;
   width: 100%;
   margin: 0px 16px;
