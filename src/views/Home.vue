@@ -131,14 +131,8 @@ div > .rest > .textinfo > .restadress {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  /* or 114% */
-
-  /* Text/Primary (Black) */
-
+  text-align: left;
   color: #131113;
-
-  /* Inside auto layout */
-
   flex: none;
   order: 1;
   flex-grow: 0;

@@ -9,7 +9,7 @@
         <img v-if="product.p_img" :src="require('@/assets/img/' + product.p_img)" />
         <div class="foodorder_counter" :style="product.p_img? 'top: 32px': 'top: -10px'">
           <button class="btn subtract" @click="this.subItem">-</button>
-          <p class="count">{{ this.counter }}</p>
+          <p class="count">{{ this.count }}</p>
           <button class="btn addition" @click="addItem">+</button>
         </div>
       </div>
@@ -33,6 +33,7 @@ export default {
   },
   data() {
     return {
+      count: this.counter,
       hide: "show",
       updatedFromCardCount: 0,
     };
@@ -44,14 +45,14 @@ export default {
       return result;
     },
     addItem() {
-      this.counter += 1;
-      this.updatedFromCardCount = this.counter
+      this.count += 1;
+      this.updatedFromCardCount = this.count
       this.$emit('counterUpdate', this.orderCost);
       this.$store.dispatch("addProductToCart", {p: this.product, c: this.updatedFromCardCount})
     },
     subItem() {
-      if (this.counter > 0) this.counter -= 1;
-      if (this.counter === 0) this.hide = "hide";
+      if (this.count > 0) this.count -= 1;
+      if (this.count === 0) this.hide = "hide";
       this.$emit('counterUpdate', -this.orderCost);
       this.updatedFromCardCount = this.count
       this.$store.dispatch("removeProductToCart", {p: this.product, c: this.updatedFromCardCount})
