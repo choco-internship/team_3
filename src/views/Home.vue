@@ -46,7 +46,7 @@ export default {
 <style scoped>
 .mainPage {
   background: #fff;
-  height: calc(100vh - 60px);
+  padding-bottom: 60px;
   padding-top: 60px;
 }
 /* Header */
