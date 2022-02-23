@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      count: 0,
+      count: this.productQty,
       qtyUpdatedButton: 0,
       cartProduct: {
         p_id: this.productTitle+""+this.productId,
