@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+import api from "../services/api";
 
 Vue.use(Vuex);
 
@@ -64,13 +64,13 @@ export default new Vuex.Store({
     },
     actions: {
         getProducts({commit}) {
-            axios.get("http://142.93.107.238/api/restaurants")
+            api.get("/restaurants")
                 .then(res => {
                     commit('SET_PRODUCTS',res.data)
                 })
         },
         getProduct({commit}, productId) {
-            axios.get(`http://142.93.107.238/api/menu/${productId}`)
+            api.get(`/menu/${productId}`)
                 .then(res => {
                     commit('SET_PRODUCT',res.data)
                 })
