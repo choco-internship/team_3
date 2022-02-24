@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Header :title="products[$route.params.id - 1].rest_name" :icon="true" />
+    <Header :title="product.data.restaurant_name" :icon="true" />
     <div class="menuPage">
-      <Slider />
-      <p class="address">{{ products[$route.params.id - 1].rest_address }}</p>
+      <Slider :restaurant_images="product.data.restaurant_images" />
+      <p class="address">{{ product.data.location }}</p>
       <nav>
         <router-link
           :to="{ path: '/menuList/' + $route.params.id }"
@@ -13,32 +13,33 @@
         </router-link>
         <ul class="menu">
           <div
-            v-for="(product, idx) in products[$route.params.id - 1].rest_menu"
+            v-for="(p, idx) in product.data.product_categories"
             :key="idx"
           >
             <li class="menu_item">
-              {{ product.title }}
+              {{ p.product_category_name }}
             </li>
           </div>
         </ul>
       </nav>
       <div
-        :id="product.title"
-        v-for="(product, idx) in products[$route.params.id - 1].rest_menu"
+        :id="pr.product_category_id"
+        v-for="(pr, idx) in product.data.product_categories"
         :key="idx"
       >
-        <p class="title_products">{{ product.title }}</p>
+        <p class="title_products">{{ pr.product_category_name }}</p>
         <div
           class="product_list"
-          v-for="(p, i) in product.productList"
+          v-for="(p, i) in pr.products"
           :key="i"
         >
+<!--          {{p.product_id}}-->
           <ProductListItem
             :product="p"
-            :productId="i"
-            :productTitle="product.title"
+            :productId="p.product_id"
+            :productTitle="p.product_name"
             :totalPrice="buttonTotalPrice"
-            :buttonQty="getItemQnt(p, i)"
+            :buttonQty="getItemQnt(p, p.product_id)"
             @totalPriceUpdated="totalPriceUpdated($event)"
             @totalQtyUpdated="totalQtyUpdated($event)"
           />
@@ -85,15 +86,15 @@ export default {
     cartTotalPrice() {
       return this.$store.getters.cartTotalPrice;
     },
-    products() {
-      return this.$store.state.products;
+    product() {
+      return this.$store.state.product;
     },
     cart() {
       return this.$store.state.cart;
     }
   },
   mounted() {
-    this.$store.dispatch("getProducts");
+    this.$store.dispatch("getProduct", this.$route.params.id);
   },
   methods: {
     totalPriceUpdated(totalPrice) {
@@ -107,7 +108,7 @@ export default {
         // здесь чекается по тайтлу, если знаешт как по айди, то давай по айди, а то по тайтлу у нескольких пицц одинаково
         // по айди еще чекает типа Пицца0 будет чекать индекс пиццы, но так все фрешы пока отмечаются тоже из-за названия
         // а так вроде работает
-        return item.p.p_title === p.p_title && item.p.p_id[item.p.p_id.length-1] === index.toString();
+        return item.p.product_id === index;
       });
       if (productInCart) {
         return productInCart.c;
@@ -165,6 +166,8 @@ nav {
 }
 .menu_item {
   padding: 10px 24px;
+  /*border: 1px solid;*/
+  width: max-content;
 }
 .menu_item:active {
   background: rgba(218, 218, 218, 0.35);
@@ -177,6 +180,7 @@ nav {
 .title_products {
   font-weight: bold;
   margin-top: 12px;
+  margin-bottom: 30px;
   font-size: 16px;
   line-height: 16px;
   margin-left: 16px;

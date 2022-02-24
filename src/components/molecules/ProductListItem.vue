@@ -1,22 +1,19 @@
 <template>
   <div class="product_list_item">
     <div class="product_info">
-      <p class="product_name">{{product.p_title}}</p>
-      <p v-if="product.p_desc" class="product_desc">{{product.p_desc}}</p>
-      <p class="product_price">{{ product.p_price }} ₸</p>
+      <p class="product_name">{{product.product_name}}</p>
+      <p v-if="product.description" class="product_desc">{{product.description}}</p>
+      <p class="product_price">{{ product.price }} ₸</p>
     </div>
-    <div class="product_img" :class="product.p_img?'':'nodisplay'">
-      <img v-if="product.p_img" :src="require('@/assets/img/'+product.p_img)" alt="product image">
+    <div class="product_img">
+      <img v-if="product.image" :src="product.image" alt="product image">
+      <QuantityButton
+          :product="product"
+          :productQty="buttonQty"
+          @qtyUpdated="qtyUpdated($event)"
+          @countUpdated="countUpdated($event)"
+      />
     </div>
-    <QuantityButton
-      :product="product"
-      :productId="productId"
-      :productTitle="productTitle"
-      :productCost="product.p_price"
-      :productQty="buttonQty"
-      @qtyUpdated="qtyUpdated($event)"
-      @countUpdated="countUpdated($event)"
-    />
   </div>
 </template>
 
@@ -107,10 +104,12 @@ export default {
 }
 .product_img {
   width: 128px;
+  position: relative;
   height: 90px;
 }
 .product_img img {
   width: 100%;
   height: 100%;
+  border-radius: 4px;
 }
 </style>
