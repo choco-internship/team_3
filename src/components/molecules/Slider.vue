@@ -1,17 +1,12 @@
 <template>
   <section class="slider">
     <div class="slider-container">
-      <div class="slider-item">
-        <img src="@/assets/img/MammaMia.png" alt="">
-      </div>
-      <div class="slider-item">
-        <img src="@/assets/img/MammaMia.png" alt="">
-      </div>
-      <div class="slider-item">
-        <img src="@/assets/img/MammaMia.png" alt="">
+      <div class="slider-item" v-for="(imgs,i) in restaurant_images" :key="i">
+
+        <img :src="imgs.url" alt="">
       </div>
       <div class="slider_info">
-        1/28
+        1/{{restaurant_images.length}}
       </div>
     </div>
   </section>
@@ -19,7 +14,12 @@
 
 <script>
 export default {
-  name: "Slider"
+  name: "Slider",
+  props: {
+    restaurant_images: {
+      type: Array
+    }
+  }
 }
 </script>
 

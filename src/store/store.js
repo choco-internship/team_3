@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         products: [],
-        cart: []
+        product: null,
+        cart: [],
     },
     getters: {
         cartItemCount(state) {
@@ -20,7 +21,7 @@ export default new Vuex.Store({
         cartTotalPrice(state) {
             let totalPrice = 0;
             state.cart.forEach(item => {
-                totalPrice += item.c * item.p.p_price
+                totalPrice += item.c * item.p.price
             })
             return totalPrice
         }
@@ -29,9 +30,12 @@ export default new Vuex.Store({
         SET_PRODUCTS(state, products) {
             state.products = products
         },
+        SET_PRODUCT(state, product) {
+            state.product = product
+        },
         ADD_PRODUCT_CART(state, p) {
             let productInCart = state.cart.find(item =>{
-                return item.p.p_id === p.p.p_id
+                return item.p.product_id === p.p.product_id
             })
             if(productInCart) {
                 productInCart.c += 1;
@@ -41,20 +45,34 @@ export default new Vuex.Store({
         },
         REMOVE_PRODUCT_CART(state, p) {
             let productInCart = state.cart.find(item =>{
-                return item.p.p_id === p.p.p_id
+                return item.p.product_id === p.p.product_id
             })
             if(productInCart) {
-                productInCart.c -= 1;
-                return;
+                if(productInCart.c > 1) {
+                    productInCart.c -= 1;
+                    return;
+                }
+                else  {
+                    state.cart = state.cart.filter(item=> {
+                        return item.p.product_id !== p.p.product_id;
+                    })
+                }
             }
-            state.cart.push(p);
+
+
         }
     },
     actions: {
         getProducts({commit}) {
-            axios.get("https://run.mocky.io/v3/e0fb0b82-9447-455a-8fed-22e31bfc1381")
+            axios.get("http://142.93.107.238/api/restaurants")
                 .then(res => {
                     commit('SET_PRODUCTS',res.data)
+                })
+        },
+        getProduct({commit}, productId) {
+            axios.get(`http://142.93.107.238/api/menu/${productId}`)
+                .then(res => {
+                    commit('SET_PRODUCT',res.data)
                 })
         },
         addProductToCart({commit}, p) {

@@ -3,14 +3,14 @@
     <Header :title="pageTitle" :icon="false" />
     <section id="menupage" >
       <div v-for="(p, i) in products" :key="i">
-        <router-link :to="/menu/ + p.id" class="rest">
+        <router-link :to="/menu/ + p.restaurant.restaurant_data.id" class="rest">
           <img
-            :src="require('../assets/img/' + p.rest_img)"
+            :src="p.restaurant.image.image_url"
             alt="Del Papa Image"
           />
           <div class="textinfo">
-            <p class="restname">{{ p.rest_name }}</p>
-            <p class="restadress">{{ p.rest_address }}</p>
+            <p class="restname">{{ p.restaurant.restaurant_data.name }}</p>
+            <p class="restadress">{{ p.restaurant.restaurant_data.location }}</p>
           </div>
         </router-link>
         <div class="between">

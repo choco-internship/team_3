@@ -1,13 +1,13 @@
 <template>
-  <div :class="`orderblock ${this.hide}`">
+  <div class="orderblock">
     <div class="foodorder">
       <div class="foodorder_info">
-        <p class="foodorder_name">{{ product.p_title }}</p>
-        <p class="foodorder_price">{{ product.p_price }} тг</p>
+        <p class="foodorder_name">{{ product.product_name }}</p>
+        <p class="foodorder_price">{{ product.price }} тг</p>
       </div>
       <div class="foodorder_photo">
-        <img v-if="product.p_img" :src="require('@/assets/img/' + product.p_img)" />
-        <div class="foodorder_counter" :style="product.p_img? 'top: 32px': 'top: -10px'">
+        <img v-if="product.image" :src="product.image" />
+        <div class="foodorder_counter" :style="product.image? 'top: 32px': 'top: -10px'">
           <button class="btn subtract" @click="this.subItem">-</button>
           <p class="count">{{ this.count }}</p>
           <button class="btn addition" @click="addItem">+</button>
@@ -34,7 +34,6 @@ export default {
   data() {
     return {
       count: this.counter,
-      hide: "show",
       updatedFromCardCount: 0,
     };
   },

@@ -14,17 +14,8 @@
 export default {
   name: "QuantityButton",
   props: {
-    productId: {
-      type: Number
-    },
-    productTitle: {
-      type: String
-    },
     product: {
       type: Object
-    },
-    productCost: {
-      type: Number
     },
     productQty: {
       type: Number
@@ -34,27 +25,27 @@ export default {
     return {
       count: this.productQty,
       qtyUpdatedButton: 0,
-      cartProduct: {
-        p_id: this.productTitle+""+this.productId,
-        p_title: this.product.p_title,
-        p_price: this.product.p_price,
-        p_img: this.product.p_img,
-      }
+      // cartProduct: {
+      //   p_id: this.product.product_id,
+      //   p_title: this.product.product_name,
+      //   p_price: this.product.p_price,
+      //   p_img: this.product.p_img,
+      // }
     }
   },
   methods: {
     increaseQty() {
       this.count += 1;
-      this.$emit('countUpdated', this.productCost);
-      this.$store.dispatch("addProductToCart", {p: this.cartProduct, c: this.count})
+      this.$emit('countUpdated', this.product.price);
+      this.$store.dispatch("addProductToCart", {p: this.product, c: this.count})
     },
     decreaseQty() {
       if(this.count >0) {
         this.count -=1
       }
       this.qtyUpdatedButton =  this.count
-      this.$emit('countUpdated', -this.productCost);
-      this.$store.dispatch("removeProductToCart", {p: this.cartProduct, c: this.count})
+      this.$emit('countUpdated', -this.product.price);
+      this.$store.dispatch("removeProductToCart", {p: this.product, c: this.count})
     }
   }
 }
@@ -69,8 +60,8 @@ export default {
 }
 .add_item {
   position: absolute;
-  bottom: 16px;
-  right: 20px;
+  bottom: 4px;
+  right: 4px;
   background: #FFFFFF;
   border: none;
   width: 36px;
@@ -97,7 +88,7 @@ export default {
   font-size: 16px;
   color: #131113;
   bottom: 4px;
-  right: 20px;
+  right: 4px;
   background: #FFFFFF;
 }
 .quantity p {
