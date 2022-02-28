@@ -7,7 +7,10 @@
       </div>
       <div class="foodorder_photo">
         <img v-if="product.image" :src="product.image" />
-        <div class="foodorder_counter" :style="product.image? 'top: 32px': 'top: -10px'">
+        <div
+          class="foodorder_counter"
+          :style="product.image ? 'top: 32px' : 'top: -10px'"
+        >
           <button class="btn subtract" @click="this.subItem">-</button>
           <p class="count">{{ this.count }}</p>
           <button class="btn addition" @click="addItem">+</button>
@@ -28,8 +31,8 @@ export default {
       type: Object,
     },
     counter: {
-      type: Number
-    }
+      type: Number,
+    },
   },
   data() {
     return {
@@ -45,17 +48,22 @@ export default {
     },
     addItem() {
       this.count += 1;
-      this.updatedFromCardCount = this.count
-      this.$emit('counterUpdate', this.orderCost);
-      this.$store.dispatch("addProductToCart", {p: this.product, c: this.updatedFromCardCount})
+      this.updatedFromCardCount = this.count;
+      this.$emit("counterUpdate", this.orderCost);
+      this.$store.dispatch("addProductToCart", {
+        p: this.product,
+        c: this.updatedFromCardCount,
+      });
     },
     subItem() {
       if (this.count > 0) this.count -= 1;
       if (this.count === 0) this.hide = "hide";
-      this.$emit('counterUpdate', -this.orderCost);
-      this.updatedFromCardCount = this.count
-      this.$store.dispatch("removeProductToCart", {p: this.product, c: this.updatedFromCardCount})
-
+      this.$emit("counterUpdate", -this.orderCost);
+      this.updatedFromCardCount = this.count;
+      this.$store.dispatch("removeProductToCart", {
+        p: this.product,
+        c: this.updatedFromCardCount,
+      });
     },
   },
 };
@@ -70,7 +78,6 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -97,6 +104,7 @@ export default {
 
 .foodorder > .foodorder_photo {
   margin-right: 16px;
+  padding-bottom: 14px;
   position: relative;
 }
 
@@ -149,4 +157,20 @@ export default {
   line-height: 20px;
   color: #131113;
 }
-</style>>
+
+.between {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  width: 100vw;
+}
+
+.betweenline {
+  height: 1px;
+  width: 100%;
+  margin: 0px 16px;
+  background: #ececec;
+}
+</style>
+>

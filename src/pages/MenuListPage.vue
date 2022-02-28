@@ -50,7 +50,7 @@ export default {
 .menu .menu_item {
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 16px;
   font-weight: normal;
   font-size: 16px;
   line-height: 20px;

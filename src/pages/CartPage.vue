@@ -1,7 +1,10 @@
 <template>
   <section id="cartpage">
-    <Header :title="`Корзина`" :icon="true"/>
-    <OrderDetailsTop :restname="`Mamma Mia`" :restaddress="`ул. Панфилова 109`"/>
+    <Header :title="`Корзина`" :icon="true" />
+    <OrderDetailsTop
+      :restname="`Mamma Mia`"
+      :restaddress="`ул. Панфилова 109`"
+    />
 
     <div class="divider"></div>
 
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import OrderDetailsTop from "../components/molecules/OrderDetailsTop.vue"
+import OrderDetailsTop from "../components/molecules/OrderDetailsTop.vue";
 import CartCard from "../components/molecules/CartCard.vue";
 import ButtonPay from "../components/molecules/ButtonPay.vue";
 import Header from "../components/organisms/BaseHeader.vue";
@@ -37,33 +40,29 @@ export default {
     OrderDetailsTop,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
     cartTotalPrice() {
-      return this.$store.getters.cartTotalPrice
+      return this.$store.getters.cartTotalPrice;
     },
     cart() {
       return this.$store.state.cart;
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
-.divider{
+.divider {
   margin-top: 16px;
 }
 </style>
 <style>
-
-
 #cartpage {
   text-align: start;
   overflow-x: hidden;
-  padding-top: 80px;
+  padding-top: 60px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -116,26 +115,10 @@ h4 {
 }
 
 
-
-/* Line divider */
-
-.between {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 25px;
-  width: 100vw;
-}
-.between > .betweenline {
-  height: 1px;
-  width: 100%;
-  margin: 0px 16px;
-  background: #ececec;
-}
-
 /* Total amount */
 
 .totalpay {
+  padding-top: 4px;
   width: 100%;
   display: flex;
   justify-content: space-between;

@@ -68,7 +68,12 @@ export default {
   text-align: start;
 }
 .order {
-  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100vw;
   background: white;
 }
+
 </style>

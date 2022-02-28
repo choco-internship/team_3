@@ -36,7 +36,5 @@ html {
   text-align: center;
   color: #2c3e50;
 }
-p {
-  margin: 20px;
-}
+
 </style>

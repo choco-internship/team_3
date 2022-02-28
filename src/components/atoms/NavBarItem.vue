@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     changePage() {
-      this.$router.push({ name: `${this.pagePath}` });
+      if (this.isActive == "") this.$router.push({ name: `${this.pagePath}` });
     },
   },
 };

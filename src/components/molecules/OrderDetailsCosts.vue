@@ -60,13 +60,12 @@ export default {
 
 .orderdetailspage__foods > .line {
   height: 1px;
-  width: 100vw;
   display: flex;
   margin-top: 8px;
 }
 .orderdetailspage__foods > .line > .li {
   width: 100%;
-  margin: 0 16px;
+  margin-right: 16px;
   height: 1px;
   background: #ececec;
 }

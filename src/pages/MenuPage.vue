@@ -187,4 +187,7 @@ nav {
   color: #8f8f8f;
   text-align: start;
 }
+p {
+  margin: 20px;
+}
 </style>
