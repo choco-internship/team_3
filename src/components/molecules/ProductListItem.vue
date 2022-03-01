@@ -93,7 +93,7 @@ export default {
 }
 .product_desc {
   font-weight: normal;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   color: #707070;
 }
