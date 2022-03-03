@@ -1,7 +1,7 @@
 <template>
   <button
       class="payButton"
-      @click="$router.push('/reg')"
+      @click="payButton"
       :disabled="!cartItemCount"
   >
     <div class="payInterface" :class="!cartItemCount?'disabled': ''">
@@ -20,10 +20,26 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      registered: this.$store.state.login,
+    };
+  },
   computed: {
     cartItemCount() {
+      console.log(this.registered)
       return this.$store.getters.cartItemCount
     },
+  },
+  methods: {
+    payButton() {
+      if(this.registered === true) {
+        this.$router.push("/payment")
+      }
+      else {
+        this.$router.push("/login")
+      }
+    }
   }
 };
 </script>

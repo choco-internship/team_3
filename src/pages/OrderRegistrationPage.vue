@@ -4,7 +4,9 @@
     <div class="not_registered"> 
         <span>Войдите в свой аккаунт </span>
         <p>Необходимо войти в свой аккаунт, чтобы увидеть историю заказов </p>
-        <button @click="register">Войти</button>
+        <router-link to="/login">
+          <button @click="register">Войти</button>
+        </router-link>
     </div>
     <NavBar :pageActive = "'Orders'"/>
   </div>
@@ -64,8 +66,8 @@ export default {
     text-align: center;
 }
 
-.not_registered > button {
-   
+.not_registered > a > button {
+
     background: #2997FF;
     border-radius: 4px;
     border: none;

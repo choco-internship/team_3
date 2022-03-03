@@ -1,48 +1,25 @@
 <template>
-  <section id="cartpage">
-    <Header :title="`Корзина`" :icon="true" />
-    <OrderDetailsTop
-      :restname="`Mamma Mia`"
-      :restaddress="`ул. Панфилова 109`"
-    />
-
-    <div class="divider"></div>
-
-    <h4>Мой заказ</h4>
-
-    <CartCard
-      v-for="(item, index) in cart"
-      :key="index"
-      :product="item.p"
-      :counter="item.c"
-    />
-
-    <article class="totalpay">
-      <h4>Итого</h4>
-      <h4>{{ cartTotalPrice }}</h4>
-    </article>
-    <ButtonPay :amount="cartTotalPrice" />
+  <section id="paymentpage">
+    <Header :title="`Payment Page`" :icon="true" />
+    <div style="text-align: center">
+      <h1 style="color: #12af12">Поздравляем! Вы успешно оплатили ! </h1>
+    </div>
+    <button class="backButton" @click="() => {this.$router.push('/')}"> Back to shop </button>
   </section>
 </template>
 
 <script>
-import OrderDetailsTop from "../components/molecules/OrderDetailsTop.vue";
-import CartCard from "../components/molecules/CartCard.vue";
-import ButtonPay from "../components/molecules/ButtonPay.vue";
 import Header from "../components/organisms/BaseHeader.vue";
 
 export default {
-  name: "CartPage",
+  name: "PaymentPage",
   components: {
     Header,
-    CartCard,
-    ButtonPay,
-    OrderDetailsTop,
+  },
+  data() {
+    return {};
   },
   computed: {
-    cartTotalPrice() {
-      return this.$store.getters.cartTotalPrice;
-    },
     cart() {
       return this.$store.state.cart;
     },
@@ -56,11 +33,23 @@ export default {
 }
 </style>
 <style>
-#cartpage {
+.backButton {
+  position: absolute;
+  bottom: 70px;
+  border: none;
+  padding: 10px 50px;
+  font-family: Roboto;
+  font-size: 17px;
+  background: #7e7b7c;
+  color: #FFFFFF;
+  border-radius: 4px;
+}
+#paymentpage {
   text-align: start;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 0px;
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,12 +57,12 @@ export default {
   background: #ffffff;
 }
 
-#cartpage > .rest {
+#paymentpage > .rest {
   height: 80px;
   width: 100%;
 }
 
-#cartpage > .rest > .textinfo > .restname {
+#paymentpage > .rest > .textinfo > .restname {
   padding-top: 20px;
   padding-left: 16px;
   font-style: normal;
@@ -82,7 +71,7 @@ export default {
   line-height: 100%;
 }
 
-#cartpage > .rest > .textinfo > .restadress {
+#paymentpage > .rest > .textinfo > .restadress {
   padding-left: 16px;
   padding-top: 12px;
   padding-bottom: 16px;

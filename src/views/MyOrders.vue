@@ -13,7 +13,7 @@ export default {
   name: "MyOrders",
   data() {
     return {
-      registered: false,
+      registered: this.$store.state.login,
       pageTitle: "Мои Заказы",
     };
   },
