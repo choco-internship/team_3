@@ -44,7 +44,7 @@ export default {
   font-size: 14px;
   color: #FFFFFF;
   line-height: 16px;
-  margin: 0 16px 20px;
+  margin: 0 16px 24px;
 }
 .button_text {
   text-align: center;
