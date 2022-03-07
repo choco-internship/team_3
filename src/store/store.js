@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import api from "../services/api";
 import router from "../router";
+import jwt_decode from "jwt-decode";
 
 Vue.use(Vuex);
 
@@ -65,6 +66,9 @@ export default new Vuex.Store({
 
         },
         LOGIN(state,resp) {
+            var decoded = jwt_decode(resp.access_token);
+            console.log(decoded.sub)
+            localStorage.setItem("id", decoded.sub);
             localStorage.setItem("token", resp.access_token)
             state.login = true
         },

@@ -1,13 +1,13 @@
 <template>
   <div id="orders_registration_page" class="orders_registration_page">
     <Header :title="pageTitle" :icon="false" />
-    
-    <div class="not_registered"> 
-        <span>Войдите в свой аккаунт </span>
-        <p>Необходимо войти в свой аккаунт, чтобы увидеть историю заказов </p>
-        <router-link to="/login">
-          <button @click="register">Войти</button>
-        </router-link>
+
+    <div class="not_registered">
+      <span>Войдите в свой аккаунт </span>
+      <p>Необходимо войти в свой аккаунт, чтобы увидеть историю заказов</p>
+      <router-link to="/login">
+        <button @click="register">Войти</button>
+      </router-link>
     </div>
     <NavBar :pageActive="'Orders'" />
   </div>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-body{
+body {
   overflow: hidden;
 }
 #orders_registration_page {
@@ -74,10 +74,8 @@ body{
   text-align: center;
 }
 
-=======
 .not_registered > a > button {
-
-    background: #2997ff;
+  background: #2997ff;
   border-radius: 4px;
   border: none;
   height: 44px;
@@ -88,6 +86,5 @@ body{
   line-height: 20px;
   text-align: center;
   color: #ffffff;
->>>>>>> refs/remotes/origin/main
 }
 </style>

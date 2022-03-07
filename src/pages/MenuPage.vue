@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="product">
     <Header :title="product.data.restaurant_name" :icon="true" />
     <div class="menuPage">
       <Slider :restaurant_images="product.data.restaurant_images" />
