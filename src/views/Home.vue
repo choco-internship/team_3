@@ -1,5 +1,5 @@
 <template>
-  <div class="mainPage">
+  <div v-if="!loading && products" class="mainPage">
     <Header :title="pageTitle" :icon="false" />
     <section id="menupage" >
       <div v-for="(p, i) in products" :key="i">
@@ -20,22 +20,26 @@
     </section>
     <NavBar :pageActive="'Home'" />
   </div>
+  <MainPageSkeleton v-else />
 </template>
 
 <script>
 import Header from "../components/organisms/BaseHeader";
 import NavBar from "../components/atoms/NavBar";
+import MainPageSkeleton from "../components/skeleton/MainPageSkeleton"
 
 export default {
   name: "Home",
   data() {
     return {
       pageTitle: "Заказ с собой",
+      loading: true,
     };
   },
   components: {
     NavBar,
     Header,
+    MainPageSkeleton,
   },
   computed: {
     products() {
@@ -44,6 +48,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getProducts");
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500)
   },
 };
 </script>
