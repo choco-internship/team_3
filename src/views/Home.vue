@@ -6,7 +6,7 @@
         <router-link :to="/menu/ + p.restaurant.restaurant_data.id" class="rest">
           <img
             :src="p.restaurant.image.image_url"
-            alt="Del Papa Image"
+            :alt="`${p.restaurant.restaurant_data.name} Image`"
           />
           <div class="textinfo">
             <p class="restname">{{ p.restaurant.restaurant_data.name }}</p>

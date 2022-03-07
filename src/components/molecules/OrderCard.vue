@@ -1,5 +1,5 @@
 <template>
-  <div class="orderspage__order">
+  <div class="orderspage__order" @click="checkOrderDetails()">
     <div class="orderspage__order-left">
       <h3 class="orderspage__order-rest">{{ order.restName }}</h3>
       <span class="orderspage__order-price">{{ this.addSpaceNum() }} тг</span>
@@ -13,7 +13,7 @@
 
     <span class="orderspage__order-date"> {{ order.orderDate }} </span>
     <svg
-      @click="checkOrderDetails()"
+      
       class="orderspage__order-details"
       width="24"
       height="24"
