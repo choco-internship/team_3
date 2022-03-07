@@ -50,7 +50,7 @@ export default {
     this.$store.dispatch("getProducts");
     setTimeout(() => {
       this.loading = false;
-    }, 1500)
+    }, 1000)
   },
 };
 </script>

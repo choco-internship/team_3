@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product">
+  <div v-if="product && !loading">
     <Header :title="product.data.restaurant_name" :icon="true" />
     <div class="menuPage">
       <Slider :restaurant_images="product.data.restaurant_images" />
@@ -52,6 +52,7 @@
       />
     </div>
   </div>
+  <MenuPageSkeleton v-else />
 </template>
 
 <script>
@@ -60,6 +61,7 @@ import ProductListItem from "../components/molecules/ProductListItem";
 import AddToCartButton from "../components/atoms/AddToCartButton";
 import Divider from "../components/atoms/Divider";
 import Slider from "../components/molecules/Slider";
+import MenuPageSkeleton from "../components/skeleton/MenuPageSkeleton"
 
 export default {
   name: "menuPage",
@@ -69,6 +71,7 @@ export default {
       buttonText: "Корзина",
       buttonTotalPrice: 0,
       buttonQty: 0,
+      loading: true,
     };
   },
   components: {
@@ -77,6 +80,7 @@ export default {
     AddToCartButton,
     ProductListItem,
     Header,
+    MenuPageSkeleton,
   },
   computed: {
     cartItemCount() {
@@ -94,6 +98,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getProduct", this.$route.params.id);
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000)
   },
   methods: {
     totalPriceUpdated(totalPrice) {
