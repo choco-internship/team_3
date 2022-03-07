@@ -12,10 +12,7 @@
           <img src="../assets/img/burger_menu.svg" alt="" />
         </router-link>
         <ul class="menu">
-          <div
-            v-for="(p, idx) in product.data.product_categories"
-            :key="idx"
-          >
+          <div v-for="(p, idx) in product.data.product_categories" :key="idx">
             <li class="menu_item">
               {{ p.product_category_name }}
             </li>
@@ -28,11 +25,7 @@
         :key="idx"
       >
         <p class="title_products">{{ pr.product_category_name }}</p>
-        <div
-          class="product_list"
-          v-for="(p, i) in pr.products"
-          :key="i"
-        >
+        <div class="product_list" v-for="(p, i) in pr.products" :key="i">
           <ProductListItem
             :product="p"
             :productId="p.product_id"
@@ -61,7 +54,7 @@ import ProductListItem from "../components/molecules/ProductListItem";
 import AddToCartButton from "../components/atoms/AddToCartButton";
 import Divider from "../components/atoms/Divider";
 import Slider from "../components/molecules/Slider";
-import MenuPageSkeleton from "../components/skeleton/MenuPageSkeleton"
+import MenuPageSkeleton from "../components/skeleton/MenuPageSkeleton";
 
 export default {
   name: "menuPage",
@@ -94,13 +87,13 @@ export default {
     },
     cart() {
       return this.$store.state.cart;
-    }
+    },
   },
   mounted() {
     this.$store.dispatch("getProduct", this.$route.params.id);
     setTimeout(() => {
       this.loading = false;
-    }, 1000)
+    }, 1000);
   },
   methods: {
     totalPriceUpdated(totalPrice) {

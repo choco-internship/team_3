@@ -2,8 +2,8 @@
   <section id="cartpage">
     <Header :title="`Корзина`" :icon="true" />
     <OrderDetailsTop
-      :restname="`Mamma Mia`"
-      :restaddress="`ул. Панфилова 109`"
+      :restname=restName
+      :restaddress=restAdress
     />
 
     <div class="divider"></div>
@@ -45,6 +45,12 @@ export default {
     },
     cart() {
       return this.$store.state.cart;
+    },
+    restName() {
+      return this.$store.getters.cartRestName;
+    },
+    restAdress() {
+      return this.$store.getters.cartRestAdress;
     },
   },
 };

@@ -3,7 +3,7 @@
     <Header :title="pageTitle" :icon="false" />
     <section id="menupage" >
       <div v-for="(p, i) in products" :key="i">
-        <router-link :to="/menu/ + p.restaurant.restaurant_data.id" class="rest">
+        <router-link @click.native="check(p.restaurant.restaurant_data.name)" :to="/menu/ + p.restaurant.restaurant_data.id" class="rest">
           <img
             :src="p.restaurant.image.image_url"
             :alt="`${p.restaurant.restaurant_data.name} Image`"
@@ -52,6 +52,14 @@ export default {
       this.loading = false;
     }, 1000)
   },
+  methods:{
+    check(restname) {
+      console.log("Asdsad")
+      if (this.$store.getters.cartRestName && this.$store.getters.cartRestName != restname) {
+        this.$store.dispatch("clearCart");
+      }
+    }
+  }
 };
 </script>
 <style scoped>
