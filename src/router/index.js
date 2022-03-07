@@ -7,6 +7,8 @@ import menuListPage from "../pages/MenuListPage";
 import Registration from "../pages/Registration";
 import OrderDetailsPage from "../pages/OrderDetailsPage";
 import MyOrders from "../views/MyOrders";
+import Login from "../pages/Login";
+import PaymentPage from "../pages/PaymentPage";
 Vue.use(VueRouter)
 
 const routes = [
@@ -41,6 +43,16 @@ const routes = [
     component: Registration
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/payment',
+    name: 'PaymentPage',
+    component: PaymentPage
+  },
+  {
     name: "Orders",
     path: "/orders",
     component: MyOrders,
@@ -55,6 +67,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: "history",
   routes
 })
 

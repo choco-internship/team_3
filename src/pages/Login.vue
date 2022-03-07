@@ -3,7 +3,7 @@
     <Header title="" :icon="true"/>
     <div class="registration">
       <p class="pageTitle">
-        Регистрация
+        Login
       </p>
       <p v-if="!fromFilled" class="pageSubtitle">
         Введите ваш почтовый адрес
@@ -31,27 +31,29 @@
             placeholder="Введите пароль"
         />
       </form>
-<!--      <form v-else action="password" class="form">-->
-<!--        <label for="password">Пароль</label>-->
-<!--        <input-->
-<!--            name="password"-->
-<!--            id="password"-->
-<!--            v-model="user.password"-->
-<!--            type="password"-->
-<!--            class="form-input"-->
-<!--            placeholder="Введите пароль"-->
-<!--        />-->
-<!--      </form>-->
+      <!--      <form v-else action="password" class="form">-->
+      <!--        <label for="password">Пароль</label>-->
+      <!--        <input-->
+      <!--            name="password"-->
+      <!--            id="password"-->
+      <!--            v-model="user.password"-->
+      <!--            type="password"-->
+      <!--            class="form-input"-->
+      <!--            placeholder="Введите пароль"-->
+      <!--        />-->
+      <!--      </form>-->
       <p class="helpText">
         Нажимая  “Далее”, вы принимаете
         <span>условия публичной оферты</span>
       </p>
-      <p @click="() => {this.$router.push('/login')}" class="registered">
-        Have account ?
+      <p @click="() => {this.$router.push('/reg')}" class="notRegistered">
+        Not registered ?
         <span></span>
       </p>
       <button
-          @click="register"
+          :disabled="!user.email && !user.password"
+          :class="(!user.email)?'disabled': ''"
+          @click="login"
           type="submit"
           class="nextButton"
       >
@@ -64,7 +66,7 @@
 <script>
 import Header from "../components/organisms/BaseHeader";
 export default {
-  name: "Registration",
+  name: "Login",
   data() {
     return {
       user: {
@@ -79,9 +81,9 @@ export default {
     fillEmail() {
       this.fromFilled = true
     },
-    register() {
-      this.$store.dispatch("registerUser", this.user);
-      this.$router.push("/login")
+    login() {
+      this.$store.dispatch("loginUser", this.user);
+      // this.$router.push("/orders")
     }
   },
   components: {Header}
@@ -89,17 +91,6 @@ export default {
 </script>
 
 <style scoped>
-.registered {
-  margin-top: 20px;
-  text-decoration: underline;
-  font-style: normal;
-  font-weight: normal;
-  width: 60%;
-  font-size: 12px;
-  line-height: 14px;
-  text-align: center;
-  color: #e35353;
-}
 .registrationPage {
   background: #fff;
   padding-top: 60px;
@@ -165,6 +156,17 @@ export default {
   line-height: 14px;
   text-align: center;
   color: #8F8F8F;
+}
+.notRegistered {
+  margin-top: 20px;
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: normal;
+  width: 60%;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #e35353;
 }
 .helpText span {
   text-decoration: underline;

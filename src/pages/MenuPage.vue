@@ -33,7 +33,6 @@
           v-for="(p, i) in pr.products"
           :key="i"
         >
-<!--          {{p.product_id}}-->
           <ProductListItem
             :product="p"
             :productId="p.product_id"
