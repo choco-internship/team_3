@@ -12,7 +12,13 @@
         Пароль должен состоять минимум из <br>6 символов
       </p>
       <form v-if="fromFilled==='email'" class="form">
-        <label for="email">e-mail</label>
+        <div class="errors">
+          {{this.$store.state.loginEr}}
+          <div v-for="(e,i) in errors" :key="i">
+            <div>{{e}}</div>
+          </div>
+        </div>
+        <label for="email">Е-mail</label>
         <input
             name="email"
             id="email"
@@ -45,7 +51,7 @@
         <span>условия публичной оферты</span>
       </p>
       <p @click="() => {this.$router.push('/reg')}" class="notRegistered">
-        Not registered ?
+        Нет аккаунта ?
         <span></span>
       </p>
       <button
@@ -90,10 +96,10 @@ export default {
       this.errors = []
       if(this.fromFilled === 'password') {
         if(!this.password) {
-          this.errors.push("Password is required")
+          this.errors.push("Неверный пароль !")
         }
         if(!this.validPassword(this.password)) {
-          this.errors.push("Valid password required")
+          this.errors.push("Пароль должен состоять минимум из 6 символов или Неверный пароль !")
         }
         if(!this.errors.length) {
           this.$store.dispatch("loginUser", { email: this.email, password: this.password});
@@ -103,16 +109,17 @@ export default {
       }
       else {
         if(!this.email) {
-          this.errors.push("Email is required!")
+          this.errors.push("Неверный адрес почты !")
         }
         if(!this.validEmail(this.email)) {
-          this.errors.push("Valid email required")
+          this.errors.push("Требуется действительный адрес электронной почты !")
         }
         if(!this.errors.length){
           this.fromFilled = 'password';
         }
+        console.log(this.errors)
+
       }
-      console.log(this.errors)
     },
     validEmail: function (email) {
       let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

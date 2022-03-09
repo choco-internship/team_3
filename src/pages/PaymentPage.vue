@@ -1,10 +1,10 @@
 <template>
   <section id="paymentpage">
-    <Header :title="`Payment Page`" :icon="true" />
+    <Header :title="`Оплатить`" :icon="true" />
     <div style="text-align: center">
-      <h1 style="color: #12af12">Поздравляем! Вы успешно оплатили ! </h1>
+      <h1 style="color: #60f160">Поздравляем! Вы успешно оплатили ! </h1>
     </div>
-    <button class="backButton" @click="() => {this.$router.push('/')}"> Back to shop </button>
+    <button class="backButton" @click="() => {this.$router.push('/')}"> Вернуться в главную </button>
   </section>
 </template>
 

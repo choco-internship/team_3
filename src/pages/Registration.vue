@@ -6,7 +6,7 @@
         Регистрация
       </p>
       <p class="pageSubtitle">
-        Введите ваш почтовый адрес
+        Заполните форму для регистрации
       </p>
       <form class="form">
         <div class="errors">
@@ -15,7 +15,7 @@
             <div>{{e}}</div>
           </div>
         </div>
-        <label for="email">e-mail</label>
+        <label for="email">Е-mail</label>
         <input
             name="email"
             id="email"
@@ -49,7 +49,7 @@
         <span>условия публичной оферты</span>
       </p>
       <p @click="() => {this.$router.push('/login')}" class="registered">
-        Have account ?
+        Уже есть аккаунт ?
         <span></span>
       </p>
       <button
@@ -83,19 +83,19 @@ export default {
     register() {
       this.errors = []
       if(!this.user.email) {
-        this.errors.push("Email is required!")
+        this.errors.push("Неверный еmail !")
       }
       if(!this.validEmail(this.user.email)) {
-        this.errors.push("Valid email required")
+        this.errors.push("Требуется действительный адрес электронной почты !")
       }
       if(!this.user.password || !this.user.password2) {
-        this.errors.push("Password is required")
+        this.errors.push("Неверный пароль !")
       }
       if(this.user.password !== this.user.password2) {
-        this.errors.push("Passwords are the same!")
+        this.errors.push("Пароли не совподают !")
       }
       if(!this.validPassword(this.user.password)) {
-        this.errors.push("Valid password required")
+        this.errors.push("Требуется действительный пароль !")
       }
 
       if(!this.errors.length) {

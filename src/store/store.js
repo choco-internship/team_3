@@ -138,7 +138,7 @@ export default new Vuex.Store({
             console.log("Password or email incorrect!\n");
             console.log("");
             console.log(error);
-            this.state.loginEr = "Password is not correct!"
+            this.state.loginEr = "Неправильный пароль !"
         });
     },
     goto({commit}, id) {
