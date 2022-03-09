@@ -1,9 +1,9 @@
 <template>
-  <div class="menuListPage">
+  <div v-if="product" class="menuListPage">
     <Header :title="this.pageTitle" :icon="true" />
     <section class="menuList">
       <ul class="menu" v-for="(product,idx) in product.data.product_categories" :key="idx">
-        <li class="menu_item">
+        <li @click="goto(product.product_category_id)"  class="menu_item">
           <p class="item_name">{{ product.product_category_name }}</p>
           <p class="item_quantity">{{ product.products.length }}</p>
         </li>
@@ -21,6 +21,12 @@ export default {
     return {
       pageTitle: "Меню",
     }
+  },
+  methods: {
+    goto(id) {
+      this.$store.dispatch("goto", id);
+      this.$router.push("/menu/"+ this.$route.params.id)
+    },
   },
   computed: {
     product() {

@@ -94,6 +94,9 @@ export default {
     },
     cart() {
       return this.$store.state.cart;
+    },
+    productSelectedId() {
+      return this.$store.state.productSelectedId;
     }
   },
   mounted() {
@@ -101,11 +104,16 @@ export default {
     setTimeout(() => {
       this.loading = false;
     }, 1000);
+
+  },
+  updated() {
+    let element = document.getElementById(this.productSelectedId);
+    element.scrollIntoView({behavior: "smooth", block: "start"});
   },
   methods: {
     goto(id) {
-      let element = document.getElementById(id);
-      console.log(element.scrollHeight)
+      this.$store.dispatch("goto", id)
+      let element = document.getElementById(this.productSelectedId);
       element.scrollIntoView({behavior: "smooth", block: "start"});
     },
     totalPriceUpdated(totalPrice) {

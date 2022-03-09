@@ -15,6 +15,7 @@ export default new Vuex.Store({
     user: {},
     login: false,
     loginEr: "",
+    productSelectedId: 0,
   },
   getters: {
     cartItemCount(state) {
@@ -88,6 +89,9 @@ export default new Vuex.Store({
     REGISTER(state, resp) {
       console.log(resp);
     },
+    SCROLLING(state, id) {
+      state.productSelectedId = id
+    }
   },
   actions: {
     getProducts({ commit }) {
@@ -136,6 +140,9 @@ export default new Vuex.Store({
             console.log(error);
             this.state.loginEr = "Password is not correct!"
         });
+    },
+    goto({commit}, id) {
+      commit("SCROLLING", id);
     },
   },
 });
