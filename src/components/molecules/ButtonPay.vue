@@ -35,6 +35,7 @@ export default {
     payButton() {
       if(this.registered === true) {
         this.$router.push("/payment")
+        this.$store.dispatch("clearCart");
       }
       else {
         this.$router.push("/login")

@@ -1,47 +1,54 @@
 <template>
   <div v-if="product && !loading">
-    <Header :title="product.data.restaurant_name" :icon="true" />
+  <Header :title="product.data.restaurant_name" :icon="true" />
     <div class="menuPage">
       <Slider :restaurant_images="product.data.restaurant_images" />
       <p class="address">{{ product.data.location }}</p>
       <nav>
         <router-link
-          :to="{ path: '/menuList/' + $route.params.id }"
-          class="burger_menu"
+            :to="{ path: '/menuList/' + $route.params.id }"
+            class="burger_menu"
         >
           <img src="../assets/img/burger_menu.svg" alt="" />
         </router-link>
         <ul class="menu">
-          <div v-for="(p, idx) in product.data.product_categories" :key="idx">
-            <li class="menu_item">
+          <div
+              v-for="(p, idx) in product.data.product_categories"
+              :key="idx"
+          >
+            <li @click="goto(p.product_category_id)" class="menu_item">
               {{ p.product_category_name }}
             </li>
           </div>
         </ul>
       </nav>
       <div
-        :id="pr.product_category_id"
-        v-for="(pr, idx) in product.data.product_categories"
-        :key="idx"
+          :id="pr.product_category_id"
+          v-for="(pr, idx) in product.data.product_categories"
+          :key="idx"
       >
-        <p class="title_products">{{ pr.product_category_name }}</p>
-        <div class="product_list" v-for="(p, i) in pr.products" :key="i">
+        <p class="title_products"  >{{ pr.product_category_name }}</p>
+        <div
+            class="product_list"
+            v-for="(p, i) in pr.products"
+            :key="i"
+        >
           <ProductListItem
-            :product="p"
-            :productId="p.product_id"
-            :productTitle="p.product_name"
-            :totalPrice="buttonTotalPrice"
-            :buttonQty="getItemQnt(p, p.product_id)"
-            @totalPriceUpdated="totalPriceUpdated($event)"
-            @totalQtyUpdated="totalQtyUpdated($event)"
+              :product="p"
+              :productId="p.product_id"
+              :productTitle="p.product_name"
+              :totalPrice="buttonTotalPrice"
+              :buttonQty="getItemQnt(p, p.product_id)"
+              @totalPriceUpdated="totalPriceUpdated($event)"
+              @totalQtyUpdated="totalQtyUpdated($event)"
           />
           <Divider />
         </div>
       </div>
       <AddToCartButton
-        :buttonText="buttonText"
-        :productQty="cartItemCount"
-        :totalPrice="cartTotalPrice"
+          :buttonText="buttonText"
+          :productQty="cartItemCount"
+          :totalPrice="cartTotalPrice"
       />
     </div>
   </div>
@@ -64,7 +71,6 @@ export default {
       buttonText: "Корзина",
       buttonTotalPrice: 0,
       buttonQty: 0,
-      loading: true,
     };
   },
   components: {
@@ -87,7 +93,7 @@ export default {
     },
     cart() {
       return this.$store.state.cart;
-    },
+    }
   },
   mounted() {
     this.$store.dispatch("getProduct", this.$route.params.id);
@@ -96,6 +102,11 @@ export default {
     }, 1000);
   },
   methods: {
+    goto(id) {
+      let element = document.getElementById(id);
+      console.log(element.scrollHeight)
+      element.scrollIntoView({behavior: "smooth", block: "start"});
+    },
     totalPriceUpdated(totalPrice) {
       this.buttonTotalPrice = totalPrice;
     },
@@ -118,7 +129,9 @@ export default {
 </script>
 
 <style scoped>
+
 .menuPage {
+  scroll-behavior: smooth;
   padding-bottom: 50px;
   padding-top: 60px;
   background: #fff;
@@ -190,3 +203,4 @@ p {
   margin: 20px;
 }
 </style>
+

@@ -14,6 +14,7 @@ export default new Vuex.Store({
     cartRest: [],
     user: {},
     login: false,
+    loginEr: "",
   },
   getters: {
     cartItemCount(state) {
@@ -130,9 +131,10 @@ export default new Vuex.Store({
           console.log("Log in!");
         })
         .catch((error) => {
-          console.log("Password or email incorrect!\n");
-          console.log("");
-          console.log(error);
+            console.log("Password or email incorrect!\n");
+            console.log("");
+            console.log(error);
+            this.state.loginEr = "Password is not correct!"
         });
     },
   },

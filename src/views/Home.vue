@@ -114,6 +114,7 @@ div > .rest {
 }
 
 div > .rest > img {
+  object-fit: cover;
   width: 90px;
   height: 90px;
   flex: none;

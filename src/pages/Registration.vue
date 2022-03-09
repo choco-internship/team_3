@@ -5,13 +5,16 @@
       <p class="pageTitle">
         Регистрация
       </p>
-      <p v-if="!fromFilled" class="pageSubtitle">
+      <p class="pageSubtitle">
         Введите ваш почтовый адрес
       </p>
-      <p v-else class="pageSubtitle">
-        Пароль должен состоять минимум из <br>9 символов
-      </p>
-      <form v-if="!fromFilled" class="form">
+      <form class="form">
+        <div class="errors">
+          {{this.$store.state.loginEr}}
+          <div v-for="(e,i) in errors" :key="i">
+            <div>{{e}}</div>
+          </div>
+        </div>
         <label for="email">e-mail</label>
         <input
             name="email"
@@ -30,18 +33,17 @@
             class="form-input"
             placeholder="Введите пароль"
         />
+        <label for="password2">Повторите пароль</label>
+        <input
+            name="password"
+            id="password2"
+            v-model="user.password2"
+            type="password"
+            class="form-input"
+            placeholder="Введите пароль"
+        />
       </form>
-<!--      <form v-else action="password" class="form">-->
-<!--        <label for="password">Пароль</label>-->
-<!--        <input-->
-<!--            name="password"-->
-<!--            id="password"-->
-<!--            v-model="user.password"-->
-<!--            type="password"-->
-<!--            class="form-input"-->
-<!--            placeholder="Введите пароль"-->
-<!--        />-->
-<!--      </form>-->
+
       <p class="helpText">
         Нажимая  “Далее”, вы принимаете
         <span>условия публичной оферты</span>
@@ -70,18 +72,48 @@ export default {
       user: {
         email: "",
         password: "",
+        password2: ""
       },
       error: false,
       fromFilled: false,
+      errors: []
     }
   },
   methods: {
-    fillEmail() {
-      this.fromFilled = true
-    },
     register() {
-      this.$store.dispatch("registerUser", this.user);
-      this.$router.push("/login")
+      this.errors = []
+      if(!this.user.email) {
+        this.errors.push("Email is required!")
+      }
+      if(!this.validEmail(this.user.email)) {
+        this.errors.push("Valid email required")
+      }
+      if(!this.user.password || !this.user.password2) {
+        this.errors.push("Password is required")
+      }
+      if(this.user.password !== this.user.password2) {
+        this.errors.push("Passwords are the same!")
+      }
+      if(!this.validPassword(this.user.password)) {
+        this.errors.push("Valid password required")
+      }
+
+      if(!this.errors.length) {
+        this.$store.dispatch("registerUser", this.user);
+        this.$router.push("/login")
+      }
+      console.log(this.errors)
+    },
+    validEmail: function (email) {
+      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validPassword: function (password) {
+      const containsUppercase = /[A-Z]/.test(password)
+      const containsLowercase = /[a-z]/.test(password)
+      const containsNumber = /[0-9]/.test(password)
+      const minLength = password.length > 6
+      return containsUppercase && containsLowercase && containsNumber && minLength
     }
   },
   components: {Header}
@@ -89,6 +121,11 @@ export default {
 </script>
 
 <style scoped>
+.errors {
+  margin-left: 0px;
+  margin-bottom: 20px;
+  color: red
+}
 .registered {
   margin-top: 20px;
   text-decoration: underline;
