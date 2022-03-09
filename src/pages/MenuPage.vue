@@ -106,7 +106,7 @@ export default {
     }, 1000);
 
   },
-  updated() {
+  created() {
     let element = document.getElementById(this.productSelectedId);
     element.scrollIntoView({behavior: "smooth", block: "start"});
   },
