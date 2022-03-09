@@ -71,6 +71,7 @@ export default {
       buttonText: "Корзина",
       buttonTotalPrice: 0,
       buttonQty: 0,
+      loading: true,
     };
   },
   components: {
