@@ -6,9 +6,9 @@
       :key="index"
       class="orderdetailspage_order"
     >
-      <span>{{details.quantity}} x {{product[0].product_name }} </span>
+      <span>{{details.quantity}} x {{product[index].product_name }} </span>
       <span style="padding-right: 16px"
-        >{{addSpaceNum(product[0].price * details.quantity)}} тг
+        >{{addSpaceNum(product[index].price * details.quantity)}} тг
       </span>
     </div>
     <div class="line">
@@ -30,14 +30,9 @@ export default {
   props: { order: { type: [Array, Object] } },
   data() {
     return {
-      product: null,
+      product: [],
     };
   },
-  // computed: {
-  //   menu() {
-  //     return this.$store.product;
-  //   },
-  // },
   mounted() {
     this.fetchProduct();
   },
@@ -46,16 +41,6 @@ export default {
       let result = given.toLocaleString();
       return result;
     },
-    // findItem(i) {
-    //   const allProducts = [];
-    //   this.menu.data.product_categories.forEach((item) =>
-    //     allProducts.push(...item.products)
-    //   );
-    //   let productFound = allProducts.filter(
-    //     (item) => item.product_id === this.order.order_details[i].product_id
-    //   );
-    //   return productFound;
-    // },
     async fetchProduct() {
       try {
         const { data } = await this.$store.dispatch("getProduct",
@@ -66,10 +51,15 @@ export default {
         data.product_categories.forEach((item) =>
           allProducts.push(...item.products)
         );
-
-        this.product = allProducts.filter(
-          (item) => item.product_id === this.order.order_details[0].product_id
-        );
+        
+        for (let j = 0; j < this.order.order_details.length; j++) {
+          this.check = allProducts.filter(
+            (item) => item.product_id === this.order.order_details[j].product_id
+          );
+          for (let i = 0; i < this.check.length; i++) {
+            this.product.push(this.check[i]);
+          }
+        }
       } catch (error) {
         console.log("ERROR", error);
       }
