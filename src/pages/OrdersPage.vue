@@ -2,7 +2,7 @@
   <section id="orderspage" class="orderspage">
     <Header :title="pageTitle" :icon="false" />
     <OrderCard
-      v-for="(order, index) in $options.$orders"
+      v-for="(order, index) in this.orders"
       :key="index"
       :order="order"
       :orderId="index"
@@ -28,6 +28,23 @@ export default {
     NavBar,
     OrderCard,
     Header,
+  },
+  computed: {
+    orders() {
+      console.log(this.$store.state.orders);
+      return this.$store.state.orders;
+    }
+  },
+  mounted() {
+    this.fetchOrders();
+  },
+  methods: {
+    async fetchOrders() {
+      this.loading = true;
+      await this.$store.dispatch("getOrders");
+      
+      this.loading = false;
+    },
   },
   $orders: ordersitems,
 };

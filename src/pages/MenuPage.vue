@@ -1,21 +1,18 @@
 <template>
   <div v-if="product && !loading">
-  <Header :title="product.data.restaurant_name" :icon="true" />
+    <Header :title="product.data.restaurant_name" :icon="true" />
     <div class="menuPage">
       <Slider :restaurant_images="product.data.restaurant_images" />
       <p class="address">{{ product.data.location }}</p>
       <nav>
         <router-link
-            :to="{ path: '/menuList/' + $route.params.id }"
-            class="burger_menu"
+          :to="{ path: '/menuList/' + $route.params.id }"
+          class="burger_menu"
         >
           <img src="../assets/img/burger_menu.svg" alt="" />
         </router-link>
         <ul class="menu">
-          <div
-              v-for="(p, idx) in product.data.product_categories"
-              :key="idx"
-          >
+          <div v-for="(p, idx) in product.data.product_categories" :key="idx">
             <li @click="goto(p.product_category_id)" class="menu_item">
               {{ p.product_category_name }}
             </li>
@@ -23,32 +20,28 @@
         </ul>
       </nav>
       <div
-          :id="pr.product_category_id"
-          v-for="(pr, idx) in product.data.product_categories"
-          :key="idx"
+        :id="pr.product_category_id"
+        v-for="(pr, idx) in product.data.product_categories"
+        :key="idx"
       >
-        <p class="title_products"  >{{ pr.product_category_name }}</p>
-        <div
-            class="product_list"
-            v-for="(p, i) in pr.products"
-            :key="i"
-        >
+        <p class="title_products">{{ pr.product_category_name }}</p>
+        <div class="product_list" v-for="(p, i) in pr.products" :key="i">
           <ProductListItem
-              :product="p"
-              :productId="p.product_id"
-              :productTitle="p.product_name"
-              :totalPrice="buttonTotalPrice"
-              :buttonQty="getItemQnt(p, p.product_id)"
-              @totalPriceUpdated="totalPriceUpdated($event)"
-              @totalQtyUpdated="totalQtyUpdated($event)"
+            :product="p"
+            :productId="p.product_id"
+            :productTitle="p.product_name"
+            :totalPrice="buttonTotalPrice"
+            :buttonQty="getItemQnt(p, p.product_id)"
+            @totalPriceUpdated="totalPriceUpdated($event)"
+            @totalQtyUpdated="totalQtyUpdated($event)"
           />
           <Divider />
         </div>
       </div>
       <AddToCartButton
-          :buttonText="buttonText"
-          :productQty="cartItemCount"
-          :totalPrice="cartTotalPrice"
+        :buttonText="buttonText"
+        :productQty="cartItemCount"
+        :totalPrice="cartTotalPrice"
       />
     </div>
   </div>
@@ -97,24 +90,20 @@ export default {
     },
     productSelectedId() {
       return this.$store.state.productSelectedId;
-    }
+    },
   },
   mounted() {
-    this.$store.dispatch("getProduct", this.$route.params.id);
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000);
-
+    this.fetchProduct();
   },
-  created() {
-    let element = document.getElementById(this.productSelectedId);
-    element.scrollIntoView({behavior: "smooth", block: "start"});
-  },
+  // created() {
+  //   let element = document.getElementById(this.productSelectedId);
+  //   element.scrollIntoView({ behavior: "smooth", block: "start" });
+  // },
   methods: {
     goto(id) {
-      this.$store.dispatch("goto", id)
+      this.$store.dispatch("goto", id);
       let element = document.getElementById(this.productSelectedId);
-      element.scrollIntoView({behavior: "smooth", block: "start"});
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     },
     totalPriceUpdated(totalPrice) {
       this.buttonTotalPrice = totalPrice;
@@ -133,12 +122,18 @@ export default {
         return productInCart.c;
       } else return 0;
     },
+
+    async fetchProduct() {
+      this.loading = true;
+      await this.$store
+        .dispatch("getProduct", this.$route.params.id)
+      this.loading = false;
+    },
   },
 };
 </script>
 
 <style scoped>
-
 .menuPage {
   scroll-behavior: smooth;
   padding-bottom: 50px;
@@ -212,4 +207,3 @@ p {
   margin: 20px;
 }
 </style>
-

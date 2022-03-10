@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import api from "@/services/api";
 export default {
   name: "ButtonPay",
   props: {
@@ -28,19 +29,46 @@ export default {
   computed: {
     cartItemCount() {
       console.log(this.registered)
-      return this.$store.getters.cartItemCount
+      return this.$store.getters.cartItemCount;
     },
+    cart() {
+      return this.$store.state.cart;
+    }
   },
   methods: {
     payButton() {
       if(this.registered === true) {
-        this.$router.push("/payment")
+        this.makeOrder();
+        this.$router.push("/payment");
         this.$store.dispatch("clearCart");
       }
       else {
         this.$router.push("/login")
       }
-    }
+    },
+    async makeOrder() {
+      if (this.cart) {
+        let order = {
+          "restaurant_id": parseInt(localStorage.getItem("id")),
+          "products": [],
+        };
+
+        this.cart.forEach((product) => {
+          order.products.push({
+            "id": product.p.product_id,
+            "quantity": product.c,
+          });
+        });
+        console.log(order);
+        try {
+          api.post("/orders/", order).then((res) => res)
+        } catch {
+          (error) => console.log(error);
+        } finally {
+          this.$store.dispatch("clearCart");
+        }
+      }
+    },
   }
 };
 </script>

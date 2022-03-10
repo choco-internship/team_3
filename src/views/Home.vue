@@ -47,10 +47,7 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("getProducts");
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000)
+    this.fetchRest();
   },
   methods:{
     check(restname) {
@@ -58,7 +55,12 @@ export default {
       if (this.$store.getters.cartRestName && this.$store.getters.cartRestName != restname) {
         this.$store.dispatch("clearCart");
       }
-    }
+    },
+    async fetchRest() {
+      this.loading = true;
+      await this.$store.dispatch("getProducts");
+      this.loading = false;
+    },
   }
 };
 </script>

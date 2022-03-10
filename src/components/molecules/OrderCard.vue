@@ -1,19 +1,18 @@
 <template>
   <div class="orderspage__order" @click="checkOrderDetails()">
     <div class="orderspage__order-left">
-      <h3 class="orderspage__order-rest">{{ order.restName }}</h3>
+      <h3 class="orderspage__order-rest">{{ order.restaurant.name }}</h3>
       <span class="orderspage__order-price">{{ this.addSpaceNum() }} тг</span>
       <span class="orderspage__order-status">
         Стасус -
         <span :style="`color: ${this.whichStatus()}`">
-          {{ order.orderStatus }}
+          {{ this.status }}
         </span>
       </span>
     </div>
 
-    <span class="orderspage__order-date"> {{ order.orderDate }} </span>
+    <span class="orderspage__order-date"> {{ this.findDate() }} </span>
     <svg
-      
       class="orderspage__order-details"
       width="24"
       height="24"
@@ -35,30 +34,43 @@ export default {
   data() {
     return {
       page: "OrderDetailsPage",
+      status: "",
     };
   },
   methods: {
     addSpaceNum() {
-      let result = this.order.orderCost.toLocaleString();
+      let result = this.order.total.toLocaleString();
       return result;
     },
     whichStatus() {
       let color;
-      if (this.order.orderStatus === "В обработке") {
+      if (this.order.order_status === 0) {
+        this.status = "В обработке";
         color = "#2997FF";
-      } else if (this.order.orderStatus === "Готов") {
+      } else if (this.order.order_status === 2) {
+        this.status = "Готов";
         color = "#A3CFA3";
-      } else if (this.order.orderStatus === "На кухне") {
+      } else if (this.order.order_status === 1) {
+        this.status = "На кухне";
         color = "#E68D49";
-      } else color = "";
+      } else {
+        this.status = "Завершен";
+        color = "";
+        }
       return color;
     },
     checkOrderDetails() {
       this.$router.push({
         name: `${this.page}`,
-        params: { orderID: this.orderId, ordernumber: this.order.orderNumber.slice(1,this.order.orderNumber.length) },
+        params: { orderID: this.orderId, ordernumber: this.order.id },
       });
     },
+    findDate(){
+      let givenDate = this.order.created_at;
+      let calendarDate = givenDate.slice(0,10);
+      let timeDate = givenDate.slice(11,16);
+      return calendarDate + ', ' + timeDate;
+    }
   },
   props: {
     order: {
@@ -77,7 +89,7 @@ export default {
   padding-left: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   background: white;
   margin-top: 20px;

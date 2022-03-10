@@ -4,10 +4,10 @@
     <span
       class="orderdetailspage__res"
       :style="`color: ${this.whichStatus()}`"
-      >{{ this.orderStatus }}</span
+      >{{ this.status }}</span
     >
     <span class="orderdetailspage__info">Дата</span>
-    <span class="orderdetailspage__res">{{ this.orderDate }}</span>
+    <span class="orderdetailspage__res">{{ this.findDate()}}</span>
     <span class="orderdetailspage__info">Номер заказа</span>
     <span class="orderdetailspage__res">{{ this.orderNumber }}</span>
   </div>
@@ -16,9 +16,14 @@
 <script>
 export default {
   name: "OrderDetailsStatus",
+  data() {
+    return {
+      status: "",
+    }
+  },
   props: {
     orderStatus: {
-      type: String,
+      type: Number,
       required: true,
     },
     orderDate: {
@@ -26,21 +31,33 @@ export default {
       required: true,
     },
     orderNumber: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
   methods: {
     whichStatus() {
       let color;
-      if (this.orderStatus === "В обработке") {
+      if (this.orderStatus === 0) {
+        this.status = "В обработке";
         color = "#2997FF";
-      } else if (this.orderStatus === "Готов") {
+      } else if (this.orderStatus === 2) {
+        this.status = "Готов";
         color = "#A3CFA3";
-      } else if (this.orderStatus === "На кухне") {
+      } else if (this.orderStatus === 1) {
+        this.status = "На кухне";
         color = "#E68D49";
-      } else color = "";
+      } else {
+        this.status = "Завершен";
+        color = "";
+        }
       return color;
+    },
+    findDate(){
+      let givenDate = this.orderDate;
+      let calendarDate = givenDate.slice(0,10);
+      let timeDate = givenDate.slice(11,16);
+      return calendarDate + ', ' + timeDate;
     },
   },
 };

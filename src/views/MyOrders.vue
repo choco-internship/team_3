@@ -27,10 +27,14 @@ export default {
 </script>
 
 <style scoped>
+html {
+  overflow-y: visible;
+}
 #orderspage {
   background: #f8f8f8;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100%;
   padding-top: 60px;
+  padding-bottom: 80px;
 }
 </style>

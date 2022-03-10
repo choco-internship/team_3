@@ -2,19 +2,19 @@
   <section id="orderdetailspage" class="orderdetailspage">
     <Header :title="pageTitle" :icon="true" />
     <OrderDetailsTop
-      :restname="$options.$orders[this.orderID].restName"
-      :restaddress="$options.$orders[this.orderID].orderAddress"
+      :restname="this.orders[this.orderID].restaurant.name"
+      :restaddress="this.orders[this.orderID].restaurant.location"
     />
     <div class="between order">
       <div class="betweenline"></div>
     </div>
     <OrderDetailsStatus
-      :orderStatus="$options.$orders[this.orderID].orderStatus"
-      :orderDate="$options.$orders[this.orderID].orderDate"
-      :orderNumber="$options.$orders[this.orderID].orderNumber"
+      :orderStatus="this.orders[this.orderID].order_status"
+      :orderDate="this.orders[this.orderID].created_at"
+      :orderNumber="this.orders[this.orderID].id"
     />
     <div class="divider"></div>
-    <OrderDetailsCosts :order="$options.$orders[this.orderID]" />
+    <OrderDetailsCosts :order="this.orders[this.orderID]" />
     <NavBar :pageActive="'Orders'" />
   </section>
 </template>
@@ -33,6 +33,11 @@ export default {
     return {
       pageTitle: "Детали заказа",
     };
+  },
+  computed: {
+    orders() {
+      return this.$store.state.orders;
+    }
   },
   $orders: ordersitems,
   methods: {
@@ -54,7 +59,7 @@ export default {
       required: true,
     },
     ordernumber: {
-      type: String,
+      type: Number,
     },
   },
 };

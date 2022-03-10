@@ -2,7 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import api from "../services/api";
 import router from "../router";
-import jwt_decode from "jwt-decode";
 
 Vue.use(Vuex);
 
@@ -16,6 +15,7 @@ export default new Vuex.Store({
     login: false,
     loginEr: "",
     productSelectedId: 0,
+    orders: [],
   },
   getters: {
     cartItemCount(state) {
@@ -80,9 +80,6 @@ export default new Vuex.Store({
       state.cartRest = [];
     },
     LOGIN(state, resp) {
-      var decoded = jwt_decode(resp.access_token);
-      console.log(decoded.sub);
-      localStorage.setItem("id", decoded.sub);
       localStorage.setItem("token", resp.access_token);
       state.login = true;
     },
@@ -90,19 +87,29 @@ export default new Vuex.Store({
       console.log(resp);
     },
     SCROLLING(state, id) {
-      state.productSelectedId = id
-    }
+      state.productSelectedId = id;
+    },
+    SET_ORDERS(state, given) {
+      state.orders = given;
+    },
   },
   actions: {
-    getProducts({ commit }) {
-      api.get("/restaurants").then((res) => {
+    async getProducts({ commit }) {
+      return await api.get("/restaurants").then((res) => {
         commit("SET_PRODUCTS", res.data);
+        return res.data;
       });
     },
-    getProduct({ commit }, productId) {
-      api.get(`/menu/${productId}`).then((res) => {
+    async getProduct({ commit }, productId) {
+      localStorage.setItem("id", productId);
+      return await api.get(`/menu/${productId}`).then((res) => {
         commit("SET_PRODUCT", res.data);
+        return res.data;
       });
+    },
+    async getOrders({ commit }) {
+      const { data } = await api.get("/orders").then(({ data }) => data);
+      commit("SET_ORDERS", data.order);
     },
     addProductToCart({ commit }, p) {
       commit("ADD_PRODUCT_CART", p);
@@ -135,13 +142,13 @@ export default new Vuex.Store({
           console.log("Log in!");
         })
         .catch((error) => {
-            console.log("Password or email incorrect!\n");
-            console.log("");
-            console.log(error);
-            this.state.loginEr = "Неправильный пароль !"
+          console.log("Password or email incorrect!\n");
+          console.log("");
+          console.log(error);
+          this.state.loginEr = "Неправильный пароль !";
         });
     },
-    goto({commit}, id) {
+    goto({ commit }, id) {
       commit("SCROLLING", id);
     },
   },
